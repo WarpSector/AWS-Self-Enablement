@@ -20,7 +20,7 @@
 **Internet Traffic Flow into the Cloud (High-Level Overview)**
 
 1. Internet traffic flows into an AWS Region.
-2. A Virtual Private Cloud (VPC) inhabits the AWS Region.
+2. A Virtual Private Cloud (VPC) inhabits the AWS Region (think of VPCs as the same as Regions - VPCs are Regions, essentially).
 3. Internet traffic enters the VPC through an Internet Gateway (IGW).
 4. Once inside the VPC, traffic flows into one of the AZs.
 5. Once inside the AZ, traffic flows into one of the public subnets (traffic cannot access private subnets).
@@ -101,7 +101,7 @@ graph TD
    * How it Works: Instead of a user in London fetching an image from a server in North Virginia, they fetch a cached copy from the London Edge Location.
    * Edge Location: Small, numerous, and closest to the user.
    * Regional Edge Cache: Larger caches that sit between your Origin and the Edge. If the Edge doesn't have the file, it checks here first before bothering your main server.
-
+   
 ```mermaid
 graph TD
     %% Define Styles
@@ -133,4 +133,38 @@ graph TD
     EL_Text[Content Delivery / CloudFront] -.-> EL
 ```
 
+
+## Amazon Elastic Compute Cloud (EC2)
+
+**EC2 Overview and Basics**
+   * Amazon Elastic Compute Cloud (EC2) is an AWS service that lets you easily use compute resources in the Cloud.
+   * You run virtual instances/machines in the Cloud when you use Amazon EC2.
+   * Amazon EC2 instances can run Linux, Windows, or MacOS.
+   * The instances are **elastic** allowing you to provision additional servers when needed and terminate unused or underutilized servers when you no longer need them.
+      * **NOTE:** Scaling is NOT automatic by default. You will need to set the rules in the AWS Management Console and configure the Auto-Scaling Groups (ASGs) to scale your EC2 instances when necessary.
+      * The ASGs will scale **horizontally** since this is not disruptive.
+      * Vertical scaling is available to perform manually, but it's disruptive (requires you to stop/start the instance) and defeats the purpose of the Cloud's elasticity (horizontal scaling and distributing the workload). 
+   * You can select different instance types with varying combinations of CPU, memory, storage, networking, and OS:
+      * Family/Generation: Examples: Main/General Purpose (M), Compute Intensive (C), Graphics Intensive (G), Data (D), RAM (R), Cheap (T), Fast (F), High Memory (U), High Compute + Memory (Z), High Disk Throughput (H), etc.  
+      * Volume/Size: Nano, Micro, Small, Medium, Large, X-Large, 2X-Large - just remember the next size is double the previous size.  
+   * You pay only for what you use.
+   * AWS manages the physical underlying infrastructure (host) and the virtualization layer (hypervisor), while the users manage their VMs and resources in the Cloud.
+   * EC2 is IaaS: AWS manages the underlying hardware and you manage everything else from the OS (platform) and up.
+   * EC2 instances "sit" inside the public or private subnet within the AZ, which "sits" within the (regional) VPC.
+
+**Virtualization**
+   * EC2 works via virtualization technology.
+   * The physical server uses virtualization software, which creates a **hypervisor** over the physical server (enabled by using virtualization software such as Zen, Microsoft V, KVM, etc.).
+   * The hypervisor creates a layer of "abstracton" between the physical server and the virtual server by allocating resources from the physical hardware into the virtual machine (VM) including the memory, storage, networking, and CPU power.
+   * Virtual Machines are also referred to as virtual servers or virtual instances.
+   * Virtualization allows you to run multiple VMs on the same physical server.
+   * Virtualization allows portability allowing you to move the VM to different physical servers (it resolves the limitation of having the OS tied to a specific piece of hardware).
+   * Virtualization allows scaling - allowing you to spread your VMs across multiple physical servers.
+
+**EC2 Benefits**
+   * Elastic: increase/decrease capacity to meet demand fluctuations and web traffic spikes.
+   * Reliable: highly reliable environment where replacement instances can be provisioned rapidly with **Regional** service-level agreements (SLAs) of 99.99% **if architected for High Availability** (i.e., EC2 instances are spread across multiple AZs in a Region with an elastic load balancer and an ASG to distribute and handle the load while the first failed EC2 instance is repaired and brought back online (this is also known as "self-healing" architecture: High Availability (HA) + Fault Tolerance (FT)).
+   * Inexpensive: Amazon passes on the benefit of economies of scale to the users.
+   * Integrated: EC2 instances are integrated with a wide variety of AWS services (including S3, RDS, and VPC) so you can build complete services within the Cloud.
+   * Secure: EC2 works inconjunction with the VPC to provide a secure location with an IP address range you can configure to allow access to your EC2 (in combination with network security measures like Network Access Control Lists (Network ACLs) protecting your subnet boundaires, Web Application Firewalls (WAFs) protecting your application load balancers (ALB), and Security Groups protecting the EC2 instance itself).
 
