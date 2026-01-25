@@ -40,3 +40,20 @@
    * Snapshots are **incremental** - once the original baseline snapshot is taken, subsequent snapshots capture the changes made to the EBS volume.
    * You can take the EBS snapshot and move that EBS volume into different AZs so multiple EC2 instances in different AZs see the same EBS volume.
    * You can also create an AMI from a snapshot and distribute them to different EC2 instances that way.
+
+### Amazon Elastic File System (EFS)
+   * Amazon EFS is a shared file system that can be shared across multiple EC2 instances.
+   * An EFS can be Regional and shared to different AZs.
+   * **Regional EFS** are connected to a **mount target** (efs/mnt) inside an AZ and then the EC2 instances inside that AZ connect to that mount target to access the Regional EFS.
+     * **NOTE:** The connection protocol to mount EC2 to mount targets is **network file system (NFS)**, which is only available in **Linux**.
+     * You can use NFS protocol with other OS, but Amazon only supports Linux.
+   * You can also deploy an EFS in a single AZ through **one zone** mount targets where the EFS --> Local AZ MTN --> Local AZ EC2 Instances are shared within that AZ.
+     * You can connect to mount points in different AZs if you need to.
+   * **Data Consistency:**
+     * Regional EFS are durable, meaning the files are copied across the AZs they are mounted to.
+     * **File Locking:** NFS protocol allows read/write locking to ensure data consistency.    
+   * **Storage Classes:**
+     * 1. **EFS Standard:** uses SSD for low-latency performance.
+     * 2. **EFS Infrequent Access (IA):** useful if you don't need to access the files regularly and is a more cost-effective option than the EFS Standard.
+     * 3. **EFS Archive:** used for archival purposes and an even cheaper option than EFS IA.
+ 
