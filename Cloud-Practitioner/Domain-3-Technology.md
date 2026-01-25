@@ -180,30 +180,30 @@ graph TD
 **EC2 Pricing**
    * There are different pricing models available:
        * On-Demand Instances:
-             * Good for users that need flexibility without any upfront payment or long-term committment (true "pay-as-you-go" pricing model).
-             * Good for users with unpredictable and spiky web traffic or unpredictable workloads that need to be processed with zero interruption.
-             * Good for users developing and testing applications on EC2 for the first time.            
+         * Good for users that need flexibility without any upfront payment or long-term committment (true "pay-as-you-go" pricing model).
+         * Good for users with unpredictable and spiky web traffic or unpredictable workloads that need to be processed with zero interruption.
+         * Good for users developing and testing applications on EC2 for the first time.            
        * Reserved Instances (RIs):
-             * Good for users that have steady-state or predictable workloads.
-             * Good for users that need reserved capacity for their apps and workloads.
-             * Standard Reserve Instances (RIs) provide up to 75% off the On-Demand price. 
-             * Users can make upfront payments to reduce their computing costs even further.
-             * RIs can be scheduled and launched within a time window you reserve, which allows you to match your reserved capacity to a predictable recurring schedule.
+         * Good for users that have steady-state or predictable workloads.
+         * Good for users that need reserved capacity for their apps and workloads.
+         * Standard Reserve Instances (RIs) provide up to 75% off the On-Demand price. 
+         * Users can make upfront payments to reduce their computing costs even further.
+         * RIs can be scheduled and launched within a time window you reserve, which allows you to match your reserved capacity to a predictable recurring schedule.
       * Spot Instances:
-             * Good for users who have flexible start and end times, because Spot Instances can be interrupted if other users demand additional capacity.
-             * Good for users who have an urgent need for a large amount of additional compute capacity.
-             * If Amazon interrupts or terminates your instance, you don't pay. If you terminate, you pay for the hour.
+         * Good for users who have flexible start and end times, because Spot Instances can be interrupted if other users demand additional capacity.
+         * Good for users who have an urgent need for a large amount of additional compute capacity.
+         * If Amazon interrupts or terminates your instance, you don't pay. If you terminate, you pay for the hour.
       * Dedicated Hosts:
-             * These are dedicated **physical** servers reserved only for you.
-             * The user has control over which instances to deploy on the host, though the user can only deploy one instance size and type on the host.
-             * This allows complete isolation. No one else will use the underlying server you are hosting your instances on so you can create all the VMs you want.
-             * Good for users with regulatory compliance and/or licensing requirements.
-             * This is the most expensive option.
+         * These are dedicated **physical** servers reserved only for you.
+         * The user has control over which instances to deploy on the host, though the user can only deploy one instance size and type on the host.
+         * This allows complete isolation. No one else will use the underlying server you are hosting your instances on so you can create all the VMs you want.
+         * Good for users with regulatory compliance and/or licensing requirements.
+         * This is the most expensive option.
       * Dedicated Instances:
-             * This can be Dedicated Hosts with Dedicated Instances already spun up for you.
-             * This can also be Dedicated Instances just for you, but not on Dedicated Hosts (you just have the instances, but the host can be shared with other users). 
-             * Billing is per instance.
+         * This can be Dedicated Hosts with Dedicated Instances already spun up for you.
+         * This can also be Dedicated Instances just for you, but not on Dedicated Hosts (you just have the instances, but the host can be shared with other users). 
+         * Billing is per instance.
       * Savings Plans:
-             * Flexible pricing model that saves up to 72% on your AWS compute usage.
-             * Offers lower pricing on EC2 instance usage regardless of family, OS, size, or type.
-             * Savings also apply to AWS Lambda and AWS Fargate.          
+         * Flexible pricing model that saves up to 72% on your AWS compute usage.
+         * Offers lower pricing on EC2 instance usage regardless of family, OS, size, or type.
+         * Savings also apply to AWS Lambda and AWS Fargate.          
