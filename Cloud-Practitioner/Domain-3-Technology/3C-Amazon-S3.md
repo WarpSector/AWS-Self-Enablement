@@ -32,4 +32,11 @@
 * #### Instance Stores
    * Instance Store volumes are physically attached to the EC2 instance host server (re: the block storage hardware in the physcial host server the EC2 instance is running on).
    * Instance Store volumes are included with the EC2 instance and are good for high throughput and high performance.
-   * Instance Store volumes are **EPHEMERAL** - if the EC2 instance is terminated or the power is lost to the host server, the Instance Store will be wiped.  
+   * Instance Store volumes are **EPHEMERAL** - if the EC2 instance is terminated or the power is lost to the host server, the Instance Store will be wiped.
+* #### EBS Snapshots
+   * EBS Snapshots are **back ups** of EBS volumes.
+   * Snapshots are captured **point-in-time** states of the EBS volume.
+   * Snapshots are not stored in the AZ, they are stored in Amazon S3 outside the AZ.
+   * Snapshots are **incremental** - once the original baseline snapshot is taken, subsequent snapshots capture the changes made to the EBS volume.
+   * You can take the EBS snapshot and move that EBS volume into different AZs so multiple EC2 instances in different AZs see the same EBS volume.
+   * You can also create an AMI from a snapshot and distribute them to different EC2 instances that way.
