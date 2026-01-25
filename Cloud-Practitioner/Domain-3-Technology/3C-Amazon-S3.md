@@ -11,10 +11,9 @@
     * SSDs are thousands of time faster than HDDs.
     * HDDs (also called "magnetic drives") are cheaper and still used in some places.
   * #### File-Based Storage (File):
-    * Files on local hard drives (block-based storage containers) are accessed in a file hierarchy.
-    * These are essentially networked block based storage drives shared over a network.
-    * Hardware known as **network attached storage servers (NAS)** are "mounted" to the network and "shares" files over the network.
-    * Computers can interact with network shared files the same way local files can be accessed.
+    * File systems are mounted on hard drives (block-based storage containers) and the files are stored in data directories - think of all the files arranged like a tree with multiple branches.
+    * Network file systems are essentially networked block-based storage drives shared over a network.
+    * Hardware known as **network attached storage servers (NAS)** are "mounted" to the network and "shares" files over the network accessed via data directories (same as how you'd access files on your local block-based storage).
   * #### Object-Based Storage (Object):
     * Users upload files into an **object based storage container** over the internet using HTTP/HTTPS protocols (e.g., GET (Read), PUT (Update), POST (Create), SELECT (Select), DELETE (Delete)).
     * This storage type is called a "bucket" because there is no file hierarchy - think of all the files (objects) as grains of sand into a bucket (though there is a way to mimic a hierarchy via S3).
@@ -22,6 +21,10 @@
     * Objects can be managed by developers and services can be integreated via **REpresentational State Transfer (REST)** API so the files can be managed via code.
       * **Recall:** Rest APIs are a set of rules for how computers should "talk" to each other over the internet using HTTP protocol. 
     * This type of storage is scalable and very cost-effective.
+* #### Differences between File-Storage and Object-Storage
+    * File-based storage is accessed via local and networked HDDs/SSDs vs. Object-based storage which is accessed over the internet.
+    * File-based storage uses data directories and a file hierarchy (re: the "tree with many branches" analogy) vs. Object-based storage does not use any directories nor has a hierarchy (re: "sand in a bucket" analogy).
+    * File-based storage is always accessible since local hard drive and network hard drives are mounted and always available vs. Object-based storage once the RestAPI call is made, the connection is closed. 
    
 ### Amazon Elastic Block Store (EBS) and Instance Stores
 * #### Amazon Elastic Block Store (EBS)
