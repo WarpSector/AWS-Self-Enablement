@@ -30,48 +30,48 @@
    * Virtualization allows scaling - allowing you to spread your VMs across multiple physical servers.
 
 **EC2 Benefits**
-   * Elastic: increase/decrease capacity to meet demand fluctuations and web traffic spikes.
-   * Reliable: highly reliable environment where replacement instances can be provisioned rapidly with **Regional** service-level agreements (SLAs) of 99.99% **if architected for High Availability** (i.e., EC2 instances are spread across multiple AZs and have an elastic load balancer along with an ASG to distribute and handle the load while the first failed EC2 instance is repaired and brought back online (this is also known as "self-healing" architecture: High Availability (HA) + Fault Tolerance (FT)).
-   * Inexpensive: Amazon passes on the benefit of economies of scale to the users.
-   * Integrated: EC2 instances are integrated with a wide variety of AWS services (including S3, RDS, and VPC) so you can build complete services within the Cloud.
-   * Secure: EC2 works inconjunction with the VPC to provide a secure location with an IP address range you can configure to allow access to your EC2 (in combination with network security measures like Network Access Control Lists (Network ACLs) protecting your subnet boundaries, Web Application Firewalls (WAFs) protecting your application load balancers (ALBs), and Security Groups protecting the EC2 instances themselves).
+   * **Elastic:** increase/decrease capacity to meet demand fluctuations and web traffic spikes.
+   * **Reliable:** highly reliable environment where replacement instances can be provisioned rapidly with **Regional** service-level agreements (SLAs) of 99.99% **if architected for High Availability** (i.e., EC2 instances are spread across multiple AZs and have an elastic load balancer along with an ASG to distribute and handle the load while the first failed EC2 instance is repaired and brought back online (this is also known as "self-healing" architecture: High Availability (HA) + Fault Tolerance (FT)).
+   * **Inexpensive:** Amazon passes on the benefit of economies of scale to the users.
+   * **Integrated:** EC2 instances are integrated with a wide variety of AWS services (including S3, RDS, and VPC) so you can build complete services within the Cloud.
+   * **Secure:** EC2 works inconjunction with the VPC to provide a secure location with an IP address range you can configure to allow access to your EC2 (in combination with network security measures like Network Access Control Lists (Network ACLs) protecting your subnet boundaries, Web Application Firewalls (WAFs) protecting your application load balancers (ALBs), and Security Groups protecting the EC2 instances themselves).
 
 **Amazon Machine Image (AMI)**
    * When you launch an EC2 instance, you must select an Amazon Machine Image (AMI) that specifies the type of OS you want to run, the resources you want to allocate to the VM, and the data and applications you want in the VM.
    * Think of AMIs as the "blueprint" for the EC2 instance you are launching. If the EC2 instance is the "house", then the AMI is the "furniture".
    * There are 3 types of AMIs:
-       * Community AMIs: AMIs that are created by other AWS users, which you can access from the community and download for free.
-       * AWS AMIs: AMIs built by Amazon and available for purchase since they come packaged with additional licensed software.
-       * Custom AMIs: AMIs you've built yourself. Best practice for Custom AMIs is to build them and install all the software, data, applications, and configurations you want before you create the snapshot. This way, if you need to load it into a different EC2 instance, you have the entire VM snapshotted and can easily upload it in one fell swoop (versus having to manually install the software and apps and manually configuring the instance each time you want to boot up a new one).
+       * **Community AMIs:** AMIs that are created by other AWS users, which you can access from the community and download for free.
+       * **AWS AMIs:** AMIs built by Amazon and available for purchase since they come packaged with additional licensed software.
+       * **Custom AMIs:** AMIs you've built yourself. Best practice for Custom AMIs is to build them and install all the software, data, applications, and configurations you want before you create the snapshot. This way, if you need to load it into a different EC2 instance, you have the entire VM snapshotted and can easily upload it in one fell swoop (versus having to manually install the software and apps and manually configuring the instance each time you want to boot up a new one).
    * **NOTE:** AMIs are "region locked" meaning they only exist in the Region they are created. You must copy them to other Regions if you want to launch a specific AMI in a different Region.
 
 **EC2 Pricing**
    * There are different pricing models available:
-       * On-Demand Instances:
+       * **On-Demand Instances:**
          * Good for users that need flexibility without any upfront payment or long-term committment (true "pay-as-you-go" pricing model).
          * Good for users with unpredictable and spiky web traffic or unpredictable workloads that need to be processed with zero interruption.
          * Good for users developing and testing applications on EC2 for the first time.            
-       * Reserved Instances (RIs):
+       * **Reserved Instances (RIs):**
          * Good for users that have steady-state or predictable workloads.
          * Good for users that need reserved capacity for their apps and workloads.
          * Standard Reserve Instances (RIs) provide up to 75% off the On-Demand price. 
          * Users can make upfront payments to reduce their computing costs even further.
          * RIs can be scheduled and launched within a time window you reserve, which allows you to match your reserved capacity to a predictable recurring schedule.
-      * Spot Instances:
+      * **Spot Instances:**
          * Good for users who have flexible start and end times, because Spot Instances can be interrupted if other users demand additional capacity.
          * Good for users who have an urgent need for a large amount of additional compute capacity.
          * If Amazon interrupts or terminates your instance, you don't pay. If you terminate, you pay for the hour.
-      * Dedicated Hosts:
+      * **Dedicated Hosts:**
          * These are dedicated **physical** servers reserved only for you.
          * The user has control over which instances to deploy on the host, though the user can only deploy one instance size and type on the host.
          * This allows complete isolation. No one else will use the underlying server you are hosting your instances on so you can create all the VMs you want.
          * Good for users with regulatory compliance and/or licensing requirements.
          * This is the most expensive option.
-      * Dedicated Instances:
+      * **Dedicated Instances:**
          * This can be Dedicated Hosts with Dedicated Instances already spun up for you.
          * This can also be Dedicated Instances just for you, but not on Dedicated Hosts (you just have the instances, but the host can be shared with other users). 
          * Billing is per instance.
-      * Savings Plans:
+      * **Savings Plans:**
          * Flexible pricing model that saves up to 72% on your AWS compute usage.
          * Offers lower pricing on EC2 instance usage regardless of family, OS, size, or type.
          * Savings also apply to AWS Lambda and AWS Fargate.          
@@ -83,15 +83,56 @@
 
 **AWS Family of Compute Services**
    * While EC2 is the "grandfather" of Amazon's compute cloud services, other compute services are available:
-      * AWS Batch:
+      * **AWS Batch:**
         * Enables developers, scientists, and engineers to easily and efficiently run hundreds of thousands of batch computing jobs on AWS.
         * AWS Batch dynamically provisions the optimal quantity and type of compute resources for the job being processed.
         * With AWS Batch, you package the code to run the jobs, specify any dependencies, and then submit the batch job via the AWS Management Console, AWS Command Line Interface (CLI), or an AWS Software Development Kit (SDK).
-      * Amazon Lightsail:
+      * **Amazon Lightsail:**
         * Best for users who do not have technical expertise with AWS as this service makes it very easy for them to provision compute services.
         * Amazon Lightsail provides compute, storage, and networking capacity and capability to deploy and manage websites, webservices, and databases in the Cloud.
         * Amazon Lightsail includes a VM, SSD-based storage, data transfer, DNS management, and a static IP.
         * Lets you deploy load balancers and attach block storage.
         * Best suited for projects that require a few dozen instances or less: good for blogs, websites, web apps, e-commerce, etc.
         * Not as powerful as EC2 instances.
-        * Has a simple management interface.
+        * Has a simple management interface.  
+      * **Amazon Elastic Container Service (ECS):**
+        * Amazon ECS is used to run Docker Containers in the Cloud.
+          * **Recall:** Containers are application code, dependencies, and system libraries all packaged up and designed to run in various runtime environments.
+          * **Recall:** Containers are **isolated** - even though the container shares the OS kernel, it will not interact with the OS until it is commanded to.
+          * **Recall:** Containers are **portable** - because the runtime environment is standardized, the Container will run exactly the same way as it does on your laptop on any other machine or on AWS Fargate or EC2 instance.
+          * **Recall:** Containers are **lightweight** - because they contain the OS kernel and not the entire OS (like a VM does), they are capable of starting up in **seconds** rather than minutes.
+          * **Recall:** **Docker** is used to build Containers - the process of taking the application, code, scripts, dependencies, and system libraries and packaging them up (sometimes called **"Dockerizing"**).
+        * ECS Containers are known as **tasks** that run in the Cloud.
+          * The task definitions are written in JSON (the Amazon "native way").
+          * The way it works: Container (The Box) --> Task Definition (JSON "Instruction Manual" to run the Container/Task) --> Task (Container is run by Amazon ECS, the "robot" that reads the JSON instructions and runs the task).
+        * **Launch Types:**
+          * EC2: You manage the instances running the tasks yourself. You spin up the instance, provision what you need yourself, and then bring the Containers in yourself to run them.
+          * AWS Fargate: An AWS managed service that manages the underlying compute, cluster, and scaling to run the Container - also known as **SERVERLESS CONTAINERS** - where you don't have to manage the EC2 instance or provision the resources yourself to run the Container:
+            * 1) You deploy ECS to run the Container and choose Fargate to do it.
+            * 2) Fargate provisions the resources needed to deploy the Container and pulls the Container image from the Elastic Container Registry (ECR) (a private Container image registry where you can store snapshots of your Containers).
+            * 3) ECS then runs the Container and monitors the task - if the Container fails, ECS will use Fargate to set up the resources, pull the Container image, and then will run the Container again.
+      * **Amazon Elastic Kubernetes Service (EKS):**
+        * Amazon EKS is used to run Containers where the "instruction manual" is written in Kubernetes (YAML).
+        * Kubernetes is the "universal instruction manual" that lets the Container run on AWS, Azure, or Google Cloud (multi-Cloud deployable).
+        * EKS is simply Amazon's service to orchestrate the Container with a Kubernetes (K8s) manual.
+        * It follows the same flow as ECS, except for one small change: Container (The Box) --> Task Definition (Kubernetes/K8s (YAML) "Instruction Manual" to run the Container/Task) --> Task (Container is **run by Amazon EKS** for K8s instead of Amazon ECS).
+      * **Amazon Lambda:**
+        * **SERVERLESS COMPUTING** technology that allows you to run code without having to provision the resources yourself.
+        * AWS Lambda executes code only when needed and scales automatically.
+        * You pay only for the compute time you consume (you pay nothing when your Lambda code is not running).
+        * Benefits of Lambda:
+          * No servers to manage.
+          * Continuous scaling.
+          * Billing down to the millisecond.
+          * Integrates with almost all AWS services.
+        * Primary Use Cases:
+          * Real-time file processing.
+          * Data processing.
+          * Can be triggered when certain events occur (e.g., a user uploads a large 4k image to an S3 bucket --> the S3 bucket triggers the Lambda code to resize the image into a thumbnail for the display --> Lambda triggers, creates the thumbnail, saves it in another S3 bucket and then shuts down --> you are billed for only for the 200ms it took for Lambda to execute).
+        * **NOTE:** Lambda code can only run events for a maximum of **15 minutes.**     
+      * **Amazon Elastic Beanstalk:**
+        * Fastest and simplest way to get web applications up and running on AWS.
+        * Developers upload their application code --> AWS Elastic Beanstalk provisions all necessary resources to run the application and scale it as necessary (re: EC2, ASG, ECS/EKS, ELB).
+        * Elastic Beanstalk is **PaaS**, because you are operating at the platform level. Amazon is running the infrastructure and the platform for you, so you can focus on testing and deploying applications and code. 
+
+
