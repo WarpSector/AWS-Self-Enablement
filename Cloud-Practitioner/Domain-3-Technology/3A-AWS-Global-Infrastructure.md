@@ -1,4 +1,5 @@
 # Domain 3: Technology
+# (3A: AWS Global Infrastructure)
 
 ## AWS Global Infrastructure (The Center)
 
