@@ -68,7 +68,7 @@
      * **Bursting Throughput:** throughput scales with the amount of storage and can burst to higher performance when needed.
     
 ### Amazon Simple Storage Service (S3)
-   * S3 uses **buckets** - an container where you store your objects.
+   * S3 uses **buckets** - a container where you store your objects.
    * **Objects** are files - S3 stores any type of file.
    * S3 is designed for 99.999999999% ("11 9's") durability.
    * S3 can store millions of objects (storage is virtually unlimited), can scale very easily, and is cheap.
@@ -82,6 +82,22 @@
    * **Keys** are the file names of the objects (so when you see the S3 URL, at the end you'll see the file name of the object - this is called the **key**).
      * Example URL: https://bucket.s3.aws-region.amazonaws.com/key <-- "key" is the file name of the object 
    * **Bucket Names** the name of the bucket has to be unique across all of AWS.
-     * Example URL:     
+   * **S3 Objects consist of:**
+     * Key (name of the object)
+     * Version ID
+     * Value (the actual data)
+     * Metadata
+     * Subresources
+     * Access Control Information   
+   * S3 is typically accessed over the internet, so to access it from (or connect it to) your VPC, you'll be doing it over the public internet.
+     * **Path**: EC2 in Public Subnet (or EC2 in Private Subnet via NAT Gateway) --> Internet Gateway (IGW) --> Public Internet --> S3 (recall that S3 exists **outside** of AZs and sits in the public space of AWS). 
+   * You can access S3 privately (meaning not through the public internet) by connecting to S3 via an **S3 Gateway Endpoint**, which connects your VPC directly to S3 via the AWS Internal Backbone (so your traffic never touches the public internet backbone).
+     * **NOTE:** To access S3 privately from an on-prem data center, you would connect to S3 via an **AWS Storage Gateway** using **AWS Direct Connect**.
+     * On Prem DC --> AWS Storage Gateway --> AWS Direct Connect (Public or Private Virtual Interface (VIF)) --> Amazon S3
+
+
+
+
+
 
 
