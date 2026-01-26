@@ -141,7 +141,7 @@
         * Data is archived for a minimum of 90 days.
         * Can be retrieved in minutes or hours (archived data that may need to be accessed infrequently).
         * A fee is charged for retrieval.
-    * **S3 Glacier Deep Archive:**
+     * **S3 Glacier Deep Archive:**
         * Data is archived for a minimum of 180 days.
         * Can be retrieved in hours (data that is unlikely to be accessed, but needs to be stored for regulatory/compliance reasons).
         * A fee is charged for retrieval. 
