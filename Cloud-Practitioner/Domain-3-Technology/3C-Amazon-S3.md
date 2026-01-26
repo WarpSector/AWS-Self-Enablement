@@ -46,83 +46,89 @@
    * **Data Lifecycle Manager (DLM):** A service you can use to automate the creation, retention, and deletion of your EBS snapshots.
 
 ### Amazon Elastic File System (EFS)
-   * Amazon EFS is a shared file system that can be shared across multiple EC2 instances.
-   * An EFS can be Regional and shared to different AZs.
-   * **Regional EFS** are connected to a **mount target** (efs/mnt) inside an AZ and then the EC2 instances inside that AZ connect to that mount target to access the Regional EFS.
-     * **NOTE:** The connection protocol to mount EC2 to mount targets is **network file system (NFS)**, which is only available in **Linux**.
-     * You can use NFS protocol with other OS, but Amazon only supports Linux.
-   * You can also deploy an EFS in a single AZ through **one zone** mount targets where the EFS --> Local AZ MTN --> Local AZ EC2 Instances are shared within that AZ.
-     * You can connect to mount points in different AZs if you need to.
-   * **Data Consistency:**
+   * #### Basics
+     * Amazon EFS is a shared file system that can be shared across multiple EC2 instances.
+     * An EFS can be Regional and shared to different AZs.
+   * #### Regional EFS
+     * **Regional EFS** are connected to a **mount target** (efs/mnt) inside an AZ and then the EC2 instances inside that AZ connect to that mount target to access the Regional EFS.
+      * **NOTE:** The connection protocol to mount EC2 to mount targets is **network file system (NFS)**, which is only available in **Linux**.
+      * You can use NFS protocol with other OS, but Amazon only supports Linux.
+    * You can also deploy an EFS in a single AZ through **one zone** mount targets where the EFS --> Local AZ MTN --> Local AZ EC2 Instances are shared within that AZ.
+      * You can connect to mount points in different AZs if you need to.
+   * #### Data Consistency
      * Regional EFS are durable, meaning the files are copied across the AZs they are mounted to.
      * **File Locking:** NFS protocol allows read/write locking to ensure data consistency.    
-   * **Storage Classes:**
-     1. **EFS Standard:** uses SSD for low-latency performance.
-     2. **EFS Infrequent Access (IA):** useful if you don't need to access the files regularly and is a more cost-effective option than the EFS Standard.
-     3. **EFS Archive:** used for archival purposes and an even cheaper option than EFS IA.
-   * EFS can be replicated across Regions for disaster recovery (DR) purposes.
+   * #### Storage Classes
+     * **EFS Standard:** uses SSD for low-latency performance.
+     * **EFS Infrequent Access (IA):** useful if you don't need to access the files regularly and is a more cost-effective option than the EFS Standard.
+     * **EFS Archive:** used for archival purposes and an even cheaper option than EFS IA.
+   * #### Replications, Mount Points, and Back Ups
+     * EFS can be replicated across Regions for disaster recovery (DR) purposes.
      * **Note:** You can create a mount point in the Region the EFS is replicated (re: 2nd Region), however, that 2nd mount point will only allow **read-only** access to the EFS (the only time it won't be read-only is if your access fails over to the 2nd Region).
-   * EFS can also be connect to an on-prem data center (from outside the Cloud) via Amazon Direct Connect or a VPN connect using the Linux NFS protocol.
-   * **Automatic Back Up:** EFS uses **AWS Backup** for automatic file system backups.
-   * **Performance Options:**
-     * **Provisioned Throughput:** you set the performance and throughput you want regardless of how large the EFS is.
-     * **Bursting Throughput:** throughput scales with the amount of storage and can burst to higher performance when needed.
+     * EFS can also be connect to an on-prem data center (from outside the Cloud) via Amazon Direct Connect or a VPN connect using the Linux NFS protocol.
+     * **Automatic Back Up:** EFS uses **AWS Backup** for automatic file system backups.
+     * **Performance Options:**
+      * **Provisioned Throughput:** you set the performance and throughput you want regardless of how large the EFS is.
+      * **Bursting Throughput:** throughput scales with the amount of storage and can burst to higher performance when needed.
     
 ### Amazon Simple Storage Service (S3)
-   * S3 uses **buckets** - a container where you store your objects.
-   * **Objects** are files - S3 stores any type of file.
-   * Files can be as large as 5 TB.
-   * S3 is designed for 99.999999999% ("11 9's") durability.
-   * S3 can store millions of objects (storage is virtually unlimited), can scale very easily, and is cheap.
-   * **Typical Use Cases:**
+   * #### Basics
+     * S3 uses **buckets** - a container where you store your objects.
+     * **Objects** are files - S3 stores any type of file.
+     * Files can be as large as 5 TB.
+     * S3 is designed for 99.999999999% ("11 9's") durability.
+     * S3 can store millions of objects (storage is virtually unlimited), can scale very easily, and is cheap.
+   * #### Typical Use Cases
      * Backup and Storage
      * Application Storage
      * Media Hosting
      * Software Delivery
      * Static Website
-   * S3 uses HTTP/HTTPS protocols over the internet to GET, PUT, POST, DELETE objects and uses RestAPI (so developers can use an Amazon Software Development Kit (SDK) to write code integrating S3 into their applications).
-   * **Keys** are the file names of the objects (so when you see the S3 URL, at the end you'll see the file name of the object - this is called the **key**).
-     * Example URL: https://bucket.s3.aws-region.amazonaws.com/key <-- "key" is the file name of the object 
-   * **Bucket Names** the name of the bucket has to be unique across all of AWS.
-   * **S3 Objects consist of:**
+   * #### S3 on the Internet   
+     * S3 uses HTTP/HTTPS protocols over the internet to GET, PUT, POST, DELETE objects and uses RestAPI (so developers can use an Amazon Software Development Kit (SDK) to write code integrating S3 into their applications).
+     * **Keys** are the file names of the objects (so when you see the S3 URL, at the end you'll see the file name of the object - this is called the **key**).
+      * Example URL: https://bucket.s3.aws-region.amazonaws.com/key <-- "key" is the file name of the object 
+     * **Bucket Names** the name of the bucket has to be unique across all of AWS.
+   * #### S3 Objects consist of:
      * Key (name of the object)
      * Version ID
      * Value (the actual data)
      * Metadata
      * Subresources
-     * Access Control Information   
-   * S3 is typically accessed over the internet, so to access it from (or connect it to) your VPC, you'll be doing it over the public internet.
-     * **Path**: EC2 in Public Subnet (or EC2 in Private Subnet via NAT Gateway) --> Internet Gateway (IGW) --> Public Internet --> S3 (recall that S3 exists **outside** of AZs and sits in the public space of AWS). 
-   * You can access S3 privately (meaning not through the public internet) by connecting to S3 via an **S3 Gateway Endpoint**, which connects your VPC directly to S3 via the AWS Internal Backbone (so your traffic never touches the public internet backbone).
-     * **NOTE:** To access S3 privately from an on-prem data center, you would connect to S3 via an **AWS Storage Gateway** using **AWS Direct Connect**.
-     * On Prem DC --> AWS Storage Gateway --> AWS Direct Connect (Public or Private Virtual Interface (VIF)) --> Amazon S3
+     * Access Control Information
+   * #### Accessing S3   
+     * S3 is typically accessed over the internet, so to access it from (or connect it to) your VPC, you'll be doing it over the public internet.
+      * **Path**: EC2 in Public Subnet (or EC2 in Private Subnet via NAT Gateway) --> Internet Gateway (IGW) --> Public Internet --> S3 (recall that S3 exists **outside** of AZs and sits in the public space of AWS). 
+     * You can access S3 privately (meaning not through the public internet) by connecting to S3 via an **S3 Gateway Endpoint**, which connects your VPC directly to S3 via the AWS Internal Backbone (so your traffic never touches the public internet backbone).
+      * **NOTE:** To access S3 privately from an on-prem data center, you would connect to S3 via an **AWS Storage Gateway** using **AWS Direct Connect**.
+      * On Prem DC --> AWS Storage Gateway --> AWS Direct Connect (Public or Private Virtual Interface (VIF)) --> Amazon S3
 
 ### Storage Durability vs. Availability
    * #### Durability
      * Protection against:
-       * Data Loss
-       * Data Corruption
-       * "11 9's" of durability: If you store 10 million objects, then you expect to lose 1 object every 10,000 years!
-       * The "11 9's" of durability is accomplished because AWS stores multiple copies of objects across different AZs.
+      * Data Loss
+      * Data Corruption
+      * "11 9's" of durability: If you store 10 million objects, then you expect to lose 1 object every 10,000 years!
+      * The "11 9's" of durability is accomplished because AWS stores multiple copies of objects across different AZs.
    * #### Availability
      * Measurement of:
-       * Amount of time data is available to you.
-       * Expressed as a percent of time per year (e.g., 99.99%).
+      * Amount of time data is available to you.
+      * Expressed as a percent of time per year (e.g., 99.99%).
 
 ### Amazon S3 Storage Classes
    * **There are a total of seven (7) classes of storage available with S3.**
    * #### Data to be Accessed Quickly:
-      * **S3 Standard:**
-        * Automatically stored in S3 standard by default.
-        * Latency is in milliseconds. 
-      * **S3 Intelligent Tiering:**
+     * **S3 Standard:**
+       * Automatically stored in S3 standard by default.
+       * Latency is in milliseconds. 
+     * **S3 Intelligent Tiering:**
         * Data is moved into different storage classes based on how frequently you are accessing that data to try and optimize for cost and performance.
         * Latency is in milliseconds. 
-      * **S3 Standard Infrequent Access (IA):**
+     * **S3 Standard Infrequent Access (IA):**
         * Data that is infrequently accessed for 30 days.
         * A fee is charged for retrieval.
         * Latency is in milliseconds.
-      * **S3 One Zone Infrequent Access (IA):**
+     * **S3 One Zone Infrequent Access (IA):**
         * Data that is infrequently access for 30 days, but is stored **only in one AZ*8 (lowers cost since it's being stored in one AZ versus the usual 3 or more AZs).
         * A fee is charged for retrieval.
         * Latency is in milliseconds.
@@ -135,7 +141,7 @@
         * Data is archived for a minimum of 90 days.
         * Can be retrieved in minutes or hours (archived data that may need to be accessed infrequently).
         * A fee is charged for retrieval.
-     * **S3 Glacier Deep Archive:**
+    * **S3 Glacier Deep Archive:**
         * Data is archived for a minimum of 180 days.
         * Can be retrieved in hours (data that is unlikely to be accessed, but needs to be stored for regulatory/compliance reasons).
         * A fee is charged for retrieval. 
