@@ -110,6 +110,9 @@
      * **Cross-Regional Replication (CRR):** Buckets are replicated across different Regions.
      * **Same-Region Replication (SRR):** Buckets are replicated within the same Region.
      * **Versioning must be enabled in the bucket in order to use CRR and/or SRR!** 
+   * #### S3 Lifecycle Management
+     * **Transition Actions:** when objects transition to different storage classes (e.g., S3 Standard transitions to S3 Standard IA after 30 days of no use/retrieval).
+     * **Expiration Actions:** define when an object expires so S3 will automatically delete it. 
 
 ### Storage Durability vs. Availability
    * #### Durability
