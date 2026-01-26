@@ -43,6 +43,7 @@
    * Snapshots are **incremental** - once the original baseline snapshot is taken, subsequent snapshots capture the changes made to the EBS volume.
    * You can take the EBS snapshot and move that EBS volume into different AZs so multiple EC2 instances in different AZs see the same EBS volume.
    * You can also create an AMI from a snapshot and distribute them to different EC2 instances that way.
+   * **Data Lifecycle Manager:** A service you can use to automate the creation, retention, and deletion of your EBS snapshots.
 
 ### Amazon Elastic File System (EFS)
    * Amazon EFS is a shared file system that can be shared across multiple EC2 instances.
@@ -70,6 +71,7 @@
 ### Amazon Simple Storage Service (S3)
    * S3 uses **buckets** - a container where you store your objects.
    * **Objects** are files - S3 stores any type of file.
+   * Files can be as large as 5 TB.
    * S3 is designed for 99.999999999% ("11 9's") durability.
    * S3 can store millions of objects (storage is virtually unlimited), can scale very easily, and is cheap.
    * **Typical Use Cases:**
