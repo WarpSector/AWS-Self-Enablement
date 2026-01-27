@@ -193,7 +193,7 @@
       * Applications can be recovered from VMs.
       * Applications can be recovered from the Cloud (AWS, Google, Azure, Oracle).
    * ### Recovery Process
-     * A **staging area** is built where your data is continuous replicated in a "staging subnet" in the VPC.
+     * A **staging area** is built where your data is continuous replicated in a "staging subnet" in the VPC (replication must be occurring BEFORE the disaster).
      * A **recovery subnet** is also established where data and applications replicated in the "staging area" are stored in a private subnet where your backups are held and can be tapped back to the primary site during a diaster to minimize downtime.
-     * **Conversion:** when data needs to be recovered during a disaster, AWS DRS will automatically convert your on-premises (or Cloud) data into AWS-compatible format so your data can be recovered.          
+     * **Conversion:** AWS DRS will automatically convert your on-premises (or Cloud) data into AWS-compatible format so your data can be recovered during a disaster.          
 
