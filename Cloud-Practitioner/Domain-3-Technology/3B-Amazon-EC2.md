@@ -86,7 +86,9 @@
        * EC2 Spot Instances for cost optimization.
        * Amazon Virtual Private Cloud (VPC) for deploying instances across AZs.
    * #### Auto-Scaling Groups (ASGs)
-     *   
+     * Auto-Scaling Groups automatically add or terminate EC2 instances in response to demand.
+     * You can define the number of instances you want to run at a steady-state in an ASG.
+     * EC2 instances are sending metrics to CloudWatch --> Depending on your auto-scaling policy, CloudWatch monitors for CPU utilization --> CloudWatch detects an auto-scaling event --> CloudWatch sends a signal to the ASG --> ASG either scales out or terminates instances based on the metrics reported by CloudWatch (ASG also signals the ELB so the ELB knows if there are additional instances to route traffic to). 
 
 ### Amazon Machine Image (AMI)
   * #### Overview
