@@ -77,7 +77,10 @@
    * #### Auto-Scaling
      * Amazon EC2 (as well as other compute services such as ECS and EKS) is capable of **auto-scaling** where instances can automatically be launched or terminated in response to demand.
      * Auto-Scaling is what maintains **high availability** and **scales** capacity.
-     * Integrates with many AWS services including:
+     * Auto-Scaling is **horizontal** (scales out).
+     * Auto-Scaling is **elastic** can scale out for added capacity and can terminate instances when demand drops.
+     * Auto-Scaling can be **on-demand** or it can be **scheduled** ahead of time (you set scaling policies to define how to respond to fluctuations in demand).
+     * **Integrates with many AWS services including:**
        * CloudWatch for monitoring and scaling (EC2 instances are constantly sending information to CloudWatch such as metrics, CPU utilization, etc.).
        * Elastic Load Balancing (ELB) for distributing the connections and workload between different instance.
        * EC2 Spot Instances for cost optimization.
