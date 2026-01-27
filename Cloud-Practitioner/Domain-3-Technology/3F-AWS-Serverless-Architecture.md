@@ -1,2 +1,2 @@
-# Amazon Serverless Architecture
-# (3D: Amazon Serverless Architectures and Automation)
+# Domain 3: Technology
+# (3D: Amazon Serverless Architectures)
