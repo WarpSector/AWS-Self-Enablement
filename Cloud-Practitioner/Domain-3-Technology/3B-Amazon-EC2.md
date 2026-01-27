@@ -4,21 +4,25 @@
 ## Amazon Elastic Compute Cloud (EC2)
 
 ### EC2 Overview and Basics
-   * **Compute is the engine of the Cloud.** This is where all the compute processing (CPU) of your Cloud applications and web services happen.
-   * Amazon Elastic Compute Cloud (EC2) is an AWS service that lets you easily use compute resources in the Cloud.
-   * You run virtual instances/machines in the Cloud when you use Amazon EC2.
-   * Amazon EC2 instances can run Linux, Windows, or MacOS.
-   * The instances are **elastic** allowing you to provision additional servers when needed and terminate unused or underutilized servers when you no longer need them.
+  * #### Compute is the engine of the Cloud.
+    * This is where all the compute processing (CPU) of your Cloud applications and web services happen.
+    * Amazon Elastic Compute Cloud (EC2) is an AWS service that lets you easily use compute resources in the Cloud.
+    * You run virtual instances/machines in the Cloud when you use Amazon EC2.
+    * Amazon EC2 instances can run Linux, Windows, or MacOS.
+    * **You only pay for what you use.**
+  * #### Elasticity
+    * The instances are **elastic** allowing you to provision additional servers when needed and terminate unused or underutilized servers when you no longer need them.
       * **NOTE:** Scaling is NOT automatic by default. You will need to set the rules in the AWS Management Console and configure the Auto-Scaling Groups (ASGs) to scale your EC2 instances when necessary.
-      * The ASGs will scale **horizontally** since this is not disruptive.
-      * Vertical scaling is available to perform manually, but it's disruptive (requires you to stop/start the instance) and defeats the purpose of the Cloud's elasticity (horizontal scaling and distributing the workload). 
-   * You can select different instance types with varying combinations of CPU, memory, storage, networking, and OS:
-      * Family/Generation: Examples: Main/General Purpose (M), Compute Intensive (C), Graphics Intensive (G), Data (D), RAM (R), Cheap (T), Fast (F), High Memory (U), High Compute + Memory (Z), High Disk Throughput (H), etc.  
+    * The ASGs will scale **horizontally** since this is not disruptive.
+    * Vertical scaling is available to perform manually, but it's disruptive (requires you to stop/start the instance) and defeats the purpose of the Cloud's elasticity (horizontal scaling and distributing the workload).
+  * #### Instance Types
+    * You can select different instance types with varying combinations of CPU, memory, storage, networking, and OS:
+      * Family/Generation: Examples: Main/General Purpose (M), Compute Intensive (C), Graphics Intensive (G), Data (D), RAM (R), Cheap (T), Fast (F), High Memory (U), High Compute + Memory (Z), High Disk Throughput (H), etc.
       * Volume/Size: Nano, Micro, Small, Medium, Large, X-Large, 2X-Large - just remember the next size is double the previous size.
-   * You pay only for what you use.
-   * AWS manages the physical underlying infrastructure (host) and the virtualization layer (hypervisor), while the users manage their VMs and resources in the Cloud.
-   * EC2 is IaaS: AWS manages the underlying hardware and you manage everything else from the OS (platform) and up.
-   * EC2 instances "sit" inside the public or private subnet within the AZ, which "sits" within the (regional) VPC.
+  * #### Shared Responsibility
+    * AWS manages the physical underlying infrastructure (host) and the virtualization layer (hypervisor), while the users manage their VMs and resources in the Cloud.
+    * EC2 is IaaS: AWS manages the underlying hardware and you manage everything else from the OS (platform) and up.
+    * EC2 instances "sit" inside the public or private subnet within the AZ, which "sits" within the (regional) VPC.
 
 ### Virtualization
    * EC2 works via virtualization technology.
@@ -40,6 +44,10 @@
      * EC2 instances are integrated with a wide variety of AWS services (including S3, RDS, and VPC) so you can build complete services within the Cloud.
    * **Secure:**
      * EC2 works inconjunction with the VPC to provide a secure location with an IP address range you can configure to allow access to your EC2 (in combination with network security measures like Network Access Control Lists (Network ACLs) protecting your subnet boundaries, Web Application Firewalls (WAFs) protecting your application load balancers (ALBs), and Security Groups protecting the EC2 instances themselves).
+
+### Scaling
+   * #### Stateful vs. Stateless
+   * 
 
 ### Amazon Machine Image (AMI)
    * When you launch an EC2 instance, you must select an Amazon Machine Image (AMI) that specifies the type of OS you want to run, the resources you want to allocate to the VM, and the data and applications you want in the VM.
