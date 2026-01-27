@@ -63,9 +63,17 @@
   * #### Secure
     * EC2 works inconjunction with the VPC to provide a secure location with an IP address range you can configure to allow access to your EC2 (in combination with network security measures like Network Access Control Lists (Network ACLs) protecting your subnet boundaries, Web Application Firewalls (WAFs) protecting your application load balancers (ALBs), and Security Groups protecting the EC2 instances themselves).
 
-### Scaling
+### States and Scaling
    * #### Stateful vs. Stateless
-   * 
+     * **Stateless:** Does not record any information, no state recorded for the session, does not "remember" you.
+     * **Stateful:** Records information, creates a session record for the session, "remembers" you.
+   * #### Scaling Up (Vertical)
+     * Adding CPU, RAM, and more resources to the server or machine itself.
+     * Also called **vertical** scaling.
+   * #### Scaling Out (Horizontal)
+     * Adding more instances of the EC2 server and/or application.
+     * You are spreading the workload across multiple instances (and balance the load with ELBs).
+     * Also called **horizontal** scaling.
 
 ### Amazon Machine Image (AMI)
   * #### Overview
