@@ -2,7 +2,7 @@
 # (3D: Amazon Web Services Networking Services)
 
 ## Amazon Route 53
-  * ### Amazon Route 53** is the AWS Domain Name Service (DNS).
+  * ### Amazon Route 53 is the AWS Domain Name Service (DNS).
     * Recall that websites are "read" by computers as IP addresses.
     * When you type in a website address into the browser, your computer sends a query to the DNS Server.
     * The DNS server has a "zone file" with a list of IP addresses.
@@ -15,3 +15,15 @@
       * The ".com" is the **top-level domain**.
       * The ".example" is the **subdomain**.
       * The "www" is the **hostname**.
+  * ### Main Functions of Route 53
+    * **Domain Registration:** Route 53 allows you to register domain names.
+    * **Domain Name Service (DNS):** Route 53 translates domain names to IP addresses using a global network of authoritative DNS servers.
+    * **Health Checking:** Route 53 sends automated requests to your application to verify that it's reachable, available, and functional.
+    * **You can use any combination of these functions when you use this service.**
+  * ### Benefits of Route 53
+    * Domain Registration.
+    * Domain Name Service (getting your own domain name).
+    * Traffic Flow (sending users to the best endpoint).
+    * Health Checking (of your domain name).
+    * DNS Failover (automatically changes the domain endpoint if the system fails).
+    * Integrates with other Amazon services such as Elastic Load Balancing (ELB), S3, and CloudFront as endpoints.
