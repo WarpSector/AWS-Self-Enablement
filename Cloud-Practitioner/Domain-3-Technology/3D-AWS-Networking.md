@@ -81,6 +81,12 @@
      * VPC Peering is connecting two VPCs together via private IP adresses.
      * VPC Peering is **non-transitive** meaning VPCs cannot route through other VPCs to make a connection to another VPC - all VPCs must be directly peered to be able to talk to each other.
      * VPC Peering can be done with VPCs in different Regions and different accounts - you just need to connect them using their private IP addresses. 
+   * #### AWS Site-to-Site VPN vs. AWS Direct Connect
+     * **AWS Site-to-Site VPN:** You can connect your VPC to your on-prem data center **over the internet** using a VPN. While your connection is encrypted, it's subject to internet bandwidth.
+     * **AWS Direct Connect:** You can connect your VPC to your on-prem directly using AWS's backbone (not the public internet) to achieve lower latency and higher throughput as well as secure connections. 
+   * #### AWS Transit Gateway
+     * The AWS Transit Gateway makes complex VPC Peering architectures simple by "plugging" all of your VPCs into a transit  hub allowing all VPCs the ability to connect and talk to each other.
+     * The AWS Transit Gateway also allows you to connect an on-prem data center to your VPC Peering hub so all your VPCs and your on-prem data center can all connect and talk to each other. 
    * #### Public vs. Private AWS Services
      * Some AWS services are **public** (like S3, CloudFront, Route 53, DynamoDB) - meaning they sit **outside** any VPCs and exist in the AWS Cloud itself.
      * Some AWS services are only available **privately** like E2, RDS, etc.
