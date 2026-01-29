@@ -119,6 +119,13 @@
      * WAFs block against cross-site scripting (XSS), SQL injection attacks, and HTTP floods.
      * WAFs are **stateful**.
     
-
+## NAT Gateways
+   * #### Overview
+     * NAT Gateways are what you use to connect internet traffic to an EC2 instance inside of a private subnet.
+     * NAT Gateways sit inside the public subnet and are connected between the IGW and the private EC2 instance.
+     * NAT Gatewats are managed by AWS.
+     * NAT Gateways automatically provide high availability (multi-AZ deployment)
+       * **REMEMBER:** High Availability (HA) = 99.99% uptime, if there's a failure the user will experience a very short "blip" while the service switches over to the next AZ.
+       * **REMEMBER:** Fault Tolerance (FT) = 100% uptime, if there's a failure the user will not even know or experience a drop in service because you have an exact, fully operable identical infrastructure running in another AZ (aka: "fault masking").
 
  
