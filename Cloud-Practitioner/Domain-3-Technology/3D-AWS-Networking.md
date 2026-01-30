@@ -158,3 +158,9 @@
     * Global Accelerator uses the AWS Global Network to optimize the path for users to applications, which improves the performance of TCP and UDP traffic (such a online gaming).
     * **Example:** Users accessing applications via TCP/UDP traffic --> Routed to Regional Edge Location --> Global Accelerator uses the AWS Global Network backbone to optimize traffic to Origin Regions.
     * Global Accelerator accomplishes this by providing static IP addresses (**anycast IPs**) that act as **fixed entry points** to application endpoints in a single and/or multiple Regions (connecting to ALBs, NLBs, or EC2 instances). 
+
+## AWS Transfer Accelerator
+  * #### Overview
+    * Transfer Accelerator uses the CloudFront Edge Network to ingest data closer to the user.
+    * Transfer Accelerator accelerators long-distance data transfers into storage (re: into S3 buckets).
+    * Transfer Accelerator is specialized for S3 bucket uploads and downloads leveraging AWS Edge Locations and CloudFront.  
