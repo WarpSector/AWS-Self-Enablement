@@ -54,14 +54,21 @@
    
 ## AWS Trusted Advisor
   * #### Overview
-    * AWS Trusted Advisor is an online resource that helps you:
+    * AWS Trusted Advisor is an online resource that helps you optimize your AWS resources:
       * Reduce cost (advises you on **cost optimization** - one of the 6 pillars of the Well-Architected Framework).
       * Increase performance (advises you on how to get the best **performance** from your services including guarding against **fault tolerance**).
       * Improve secruity (advises you on how to optimize the **security** of your services).
     * AWS Trusted Advisor provides real-time guidance to help you provision your resources following **best practices** (remember the term "best practices" for the exam!).
    
-    
-
+## AWS Health API
+  * #### AWS Personal Health Dashboard
+    * Provides alerts and remediation guidance when AWS is experiencing events that may impact **YOU**.
+    * Provides a personalized view into the performance and availability of the AWS services underlying your AWS resources.
+    * Provides proactive notifications of scheduled events and downtime allowing you to plan accordingly.  
+  * #### AWS Service Health Dashboard
+    * Provides current status of AWS services.
+    * NOT personalized to you.
+   
 
  
 
