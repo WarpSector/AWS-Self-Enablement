@@ -141,8 +141,7 @@ Amazon EC2 provides resizable, virtualized compute capacity in the cloud, allowi
          * Good for users with regulatory compliance and/or licensing requirements.
          * This is the most expensive option.
       * #### Dedicated Instances:
-         * This can be Dedicated Hosts with Dedicated Instances already spun up for you.
-         * This can also be Dedicated Instances just for you, but not on Dedicated Hosts (you just have the instances, but the host can be shared with other users). 
+         * This can be Dedicated Hosts with (dedicated) instances, but without the insight into the hardware layer that you get when choosing Dedicated Hosts (insights into things like socket layers and host affinity).
          * Billing is per instance.
       * #### Savings Plans:
          * Flexible pricing model that saves up to 72% on your AWS compute usage.
