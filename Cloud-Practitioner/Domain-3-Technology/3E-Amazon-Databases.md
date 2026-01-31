@@ -54,7 +54,7 @@
  ## Data Partitions vs. Data Shards
    * #### Data Partitions
      * Breaking a data table into separate pieces on a single EC2 instance (vertical scaling required).
-   * ### Data Shard
+   * #### Data Shard
      * Breaking a data table into separate pieces across multiple EC2 instances (horizontal scaling enabled).  
  
  ## Amazon Relational Database (RDS)
