@@ -165,7 +165,7 @@
     * No shards, completely automated and easily scalable.
     * Saves data directly into another service like S3 or Redshift.
 
-## Amazon OpenSearch Serrvice
+## Amazon OpenSearch Service
   * #### Overview
     * Fully managed service for searching, visualize, and analyzing text as well as unstructured data (search and analytics suite).
     * Petabyte scale and secure, deployable to VPC, and integrates with IAM.
