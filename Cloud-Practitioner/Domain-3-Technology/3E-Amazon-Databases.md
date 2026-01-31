@@ -67,7 +67,8 @@
      * Vertical scaling is required for enhanced **write** performance.
      * RDS can be **scaled out** using **RDS Read Replica**, which is a read-only copy of the RDS database that handles **read** requests while the original DB handles write requests - these can be **scaled out.**
    * #### Availability
-     * You can create a **RDS Standby** copy in another AZ so you have multi-AZ deployment, which is essential for disaster recovery.   
+     * You can create a **RDS Standby** copy in another AZ so you have multi-AZ deployment, which is essential for disaster recovery.
+     * **RDS Standbys** are not used for scalability like Read Replicas are - their sole purpose is for failover and disaster recovery.   
 
 
 
