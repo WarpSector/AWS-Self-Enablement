@@ -1,6 +1,8 @@
 # Domain 3: Technology
 # (3E: Amazon Database Services)
 
+### Executive Summary
+
 ## Types of Databases
    * #### Relational Databases
      * Organized by tables and rows.
@@ -175,8 +177,15 @@
     * Ultrawarm and cold storage available.
     * Enables encryption at rest and transit.
   * #### Architecture
+    * Deployed in Amazon VPC as clusters allowing for secure intra-VPC communications.
+        * NOTE: Limitations of deploying in VPCs:
+            * Cannot launch in a VPC that has tenancy (meaning you cannot launch this service on **Dedicated Hosts** and **Dedicated Instances**).
+            * Because OpenSearch is a managed service, AWS handles the provisioning of the underlying servers. Since you don't have control over the physical placement of those specific "managed" servers, they can't be pinned to your specific Dedicated Host hardware.  
+    * VPN connection required if connecting to public internet.
     * Nodes and replicas are deployable across multiple AZs making it HA and scalable.
     * Not serverless - uses EC2 instances and scales in and out.
     * Backs up using EBS snapshots.
-    * Deployed as clusters which are managed by APIs, CLI, or via AWS Management Console. 
+    * Deployed as clusters which are managed by APIs, CLI, or via AWS Management Console.
+    * OpenSearch ingests data from different sources, which can include Amazon Kinesis Firehose, LogStash, or ElasticSearch Open API.
+    * Data ingested into OpenSearch can then be searched and/or analyzed by pointing open source tools like Kibana Dashboard at OpenSearch. 
 
