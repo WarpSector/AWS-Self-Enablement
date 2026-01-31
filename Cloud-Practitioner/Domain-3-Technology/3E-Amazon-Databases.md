@@ -94,5 +94,13 @@
     * Highly available 99.99%, 99.999% for Global Tables.
     * Global Tables are a fully managed, mutli-region, and mutli-master solution that writes and reads to both Regions and the data is replicated in both tables.
     
-
+## Amazon Redshift
+  * #### Overview
+    * Fully managed SQL-based data warehouse that stores transactional data loaded from Amazon RDS (OLTP).
+    * Data can be analyzed using business intelligence (BI) tools (OLAP).
+    * Redshift uses EC2 instances (it is not serverless).
+    * Redshift always keeps three (3) copies of your data.
+    * Redshift provides continous incremental backups.
+   
+   
 
