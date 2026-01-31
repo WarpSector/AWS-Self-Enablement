@@ -69,6 +69,7 @@
    * #### Availability
      * You can create a **RDS Standby** copy in another AZ so you have multi-AZ deployment, which is essential for disaster recovery.
      * **RDS Standbys** are not used for scalability like Read Replicas are - their sole purpose is for failover and disaster recovery.   
+
 ## Amazon Aurora
    * #### Overview
      * AWS database offering in the Amazon RDS family.
@@ -107,7 +108,7 @@
     * EMR provides a managed service implementing **Hadoop** - a framework for big data.
     * EMR is used for **big data** management and intelligence.
     * EMR can perform **extract, transform, and loading (ETL)** of big data.
-    * EMR can perform ETL from a number of different DBs: RDS, Redshift, DynamoDB, S3, S3 Glacier (**Yes - S3 can also be used as a database to store data!**), Hadoop, Spark, etc. 
+    * EMR can perform ETL from a number of different DBs: RDS, Redshift, DynamoDB, S3, S3 Glacier (**Yes - S3 can also be used as a data lake to store data!**), Hadoop, Spark, etc. 
 
 ## Amazon ElastiCache
   * #### Overview
@@ -125,4 +126,22 @@
     * **Amazon ElastiCache:** Caching. This is for ephemeral data. If the server loses power, the data is gone. ElastiCache is primarily used to speed up RDS (by handling cache hits from the attached EC2 instance).
     * **Amazon Memory DB for Redis:** Primary Database. This is for durable data. It stores everything in RAM for speed, but it also writes to a distributed transaction log across multiple AZs. 
 
+## Amazon Athena
+  * #### Overview
+    * Athena can query data using SQL in data lakes like S3.
+    * Athena can also query data to other sources (such as AWS CloudTrail) via a Lambda function.
+    * Athena uses a managed data catalog (like AWS Glue) to store information and schemas about databases.
+    * Data can be CSV, JSON, ORC, TSV, or Parquet.
+  * #### Optimizing Athena
+    * Partition your data
+    * Bucket your data
+    * Optimize file sizes
 
+## AWS Glue
+  * #### Overview
+    * Fully managed ETL service.
+    * Used for preparing data for analytics (OLAP).
+    * AWS Glue runs ETL on Apache Spark.
+    * AWS Glue discovers data and stores the associated metadata in the **AWS Glue Data Catalog** (which can then be leveraged by services like Amazon Athena when running queries).
+    * Works with data lakes (e.g. S3), data warehouses (e.g. Redshift), and data stores (e.g. RDS).
+   
