@@ -187,5 +187,32 @@
     * Backs up using EBS snapshots.
     * Deployed as clusters which are managed by APIs, CLI, or via AWS Management Console.
     * OpenSearch ingests data from different sources, which can include Amazon Kinesis Firehose, LogStash, or ElasticSearch Open API.
-    * Data ingested into OpenSearch can then be searched and/or analyzed by pointing open source tools like Kibana Dashboard at OpenSearch. 
+    * Data ingested into OpenSearch can then be searched and/or analyzed by pointing open source tools like Kibana Dashboard at OpenSearch.
+  * #### The ELK Stack
+    * "ELK" = ElasticSearch + Logstash + Kibana (essentially the architecture of OpenSearch).
+    * Logstash (Ingest) --> ElasticSearch (Load) <-- Kibana Dashboard (Analyze)
+    * The ELK Stack is used to aggregate logs from systems and applications to create visualizations for:
+        * Troubleshooting
+        * Visualize app and/or infrastructure monitoring data
+        * Security analytics
+  * #### Access Control
+    * Resource-Based policies (domain access policies)
+    * Identity-Based policies (IAM permissions and roles)
+    * IP-Based policies (restrict access to one or more IPs or entire CIDR blocks)
+    * Fine-Grained access control (role-based access control, HTTP access control, and other security policies)
+    * Authentication-Based control
+  * #### Best Practices     
+    * Deploy across three (3) AZs for high availability.
+    * Use three (3) dedicated nodes.
+    * Configure at least one replica for each index.
+    * Apply restrictive resource-based policies for access control (or use fine-grained access control).
+    * Enable node-to-node (transit) encryption and encryption at rest.
+
+## AWS Data Exchange
+  * #### Overview
+    * AWS Data Exchange is a platform that allows you to securely use third-party data and data products.
+    * AWS Data Exchange provides access to 3,500+ data sets from 300+ third-party providers.
+    * Data Producers and Providers publish their data sets to the AWS Data Exchange and AWS Cloud customers can subscribe to these data sets/providers.
+        * 3rd Party Data Set/Provider/Producer --> AWS Data Exchange <-- AWS User subs to their choice of set/provider via a Lambda function that calls the API endpoint of the 3rd party data set/provider.  
+
 
