@@ -104,7 +104,7 @@
     * Data is stored in partitions, which are replicated across multiple AZs (fault tolerant).
     * Highly available 99.99%, 99.999% for Global Tables.
     * Global Tables are a fully managed, mutli-region, and mutli-master solution that writes and reads to both Regions and the data is replicated in both tables.
-    * **DynamoDB Accelerator (DAX):** is an im-memory cache that increases performance on DynamoDB databases. 
+    * **DynamoDB Accelerator (DAX):** is an in-memory cache that increases performance on DynamoDB databases. 
     
 ## Amazon Redshift
   * #### Overview
