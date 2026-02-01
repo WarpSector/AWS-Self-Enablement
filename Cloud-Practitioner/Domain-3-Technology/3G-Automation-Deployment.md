@@ -2,7 +2,7 @@
 # (3G: Automation and Continuous Integration/Continuous Deployment (CI/CD))
 
 ## Executive Summary
-**CI/CD** represents a set of practices that automate the transition of code from a developer's machine to the production environment. This process ensures high "Innovation Velocity" by reducing manual errors and providing immediate feedback on code quality.
+The Automation and Deployment domain transforms manual "click-ops" into scalable, repeatable code, enabling organizations to innovate faster while reducing human error. By leveraging Infrastructure as Code (CloudFormation) and integrated CI/CD pipelines (The CodeSuite), AWS provides a unified "conveyor belt" that automates the journey from a developer's browser-based IDE to a globally optimized, high-performance production environment.
 
 ## Amazon CloudFront
   * ### Overview
