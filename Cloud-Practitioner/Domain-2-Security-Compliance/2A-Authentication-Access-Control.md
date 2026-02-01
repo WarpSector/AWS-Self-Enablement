@@ -42,4 +42,13 @@
     * **Grant least privilege!** (Principal of Least Privilege): Users and Groups have the minimum amount of permissions required to perform their tasks - nothing less, nothing more.
     * Get started using permissions with AWS managed policies - only use custom policies once you are deeply familiar with the services and permissions available to minimize security risks.
     * Use customer managed policies instead of inline policies (inline policies are where you assign a policy directly to a user account or a role - it's always safer to separate the policies from the users and have them in one place where you can then assign them to groups or to roles and update them in one place).
-    *   
+    * Use **access levels** to review IAM permissions - meaning constantly review the permissions granted to users to ensure the principal of least privilege is being applied.
+    * Configure a strong password policy for your users.
+    * Enable MFA.
+    * Use **ROLES** for applications that run on EC2 instances - don't use access keys and don't put access keys into the application code - always safer to assign a ROLE to an application to grant it permissions.
+    * Use **ROLES** to delegate permissions.
+    * Do not share access keys.
+    * Rotate credentials regularly.
+    * Remove unnecessary credentials.
+    * Use policy conditions for extra security.
+    * Monitor activity in your AWS account.  
