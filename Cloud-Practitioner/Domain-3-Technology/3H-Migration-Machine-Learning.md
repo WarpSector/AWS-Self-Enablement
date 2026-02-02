@@ -18,4 +18,12 @@
     * Automates, schedules, and tracks incremental replications of live server volumes.
   * ### AWS DataSync
     * Online data transfer service.
-    *     
+    * Transfer data between on-premises and AWS storage services.
+  * ### AWS Snowball Family
+    * **AWS Snowball and Snowmobile are used for migrating large volumes of data to AWS.**
+    * #### Snowball Edge Compute Optimized
+      * Provides block an object storage along with an optional GPU.
+      * Good for edge computing use cases
+    * #### Snowball Edge Storage Optimized
+      * Provides block storage and Amazon S3-compatible object storage.
+      *         
