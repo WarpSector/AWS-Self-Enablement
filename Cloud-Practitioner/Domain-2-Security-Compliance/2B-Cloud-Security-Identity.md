@@ -86,4 +86,19 @@
     * Hardware Security Modules are physical, tamper-resistant computing device that generates, manages, and stores cryptographic keys.
     * In the AWS world, you'll see this as AWS CloudHSM. While most users are happy with AWS KMS (which is a managed software service), some organizations require the "physical isolation" of an HSM to meet strict regulatory or security standards.  
 
-
+## Logging and Auditing
+  * ### AWS CloudWatch
+    * CloudWatch monitors the performance of the applications and resources in your AWS account.
+    * CloudWatch is also a respository for **metrics** from your EC2 instances, network, S3, utilization, etc.
+    * **CloudWatch Logs:** CloudWatch Logs gathers the metrics and builds the repository.
+  * ### AWS CloudTrail
+    * CloudTrail captures user activity and API calls in your AWS account such as creating or terminating resources, logins, etc.
+    * CloudTrail captures who used an API, what time, what action, and on what resource.
+    * Logs are retained for 90 days **unless** a **CLOUDTRAIL TRAIL** logs events into an S3 bucket for indefinite retention.
+    * CloudTrails can be in one or multiple Regions.
+  * ### VPC Flow Logs
+    * VPC Flow Logs capture information about the IP traffic going to and from network interfaces within a VPC.
+    * Data is stored using CloudWatch Logs at the VPC, subnet, and network interface levels.
+  * ### Access Logs
+    * **ELB Access Logs:** captures detailed information about requests sent to the load balancer, the IP, request type, etc. to analyze traffic patterns.
+    * **S3 Access Logs:** choose a target bucket and provides detailed records for requests made to the bucket (disabled by default).  
