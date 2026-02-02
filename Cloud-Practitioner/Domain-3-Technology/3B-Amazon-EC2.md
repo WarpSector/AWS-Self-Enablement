@@ -46,7 +46,7 @@
 * **Self-Healing (ASG):** The system detects a failed instance and replaces it. (Maintains *Quantity*).
 * **Failover (ALB/Route 53):** The system detects an unhealthy path and reroutes traffic. (Maintains *Connectivity*).
 * **Fault Tolerance:** The system has no single point of failure; if one half dies, the other half is already processing the load. (Maintains *Continuity*).
-**Exam Tip:** If the question mentions **"Zero Downtime"** or **"Mission Critical,"** lean toward Fault Tolerance. If it mentions **"Minimize Downtime"** or **"Cost-effective,"** lean toward High Availability.
+* **Exam Tip:** If the question mentions **"Zero Downtime"** or **"Mission Critical,"** lean toward Fault Tolerance. If it mentions **"Minimize Downtime"** or **"Cost-effective,"** lean toward High Availability.
 ---
 
 # Deep Dive
