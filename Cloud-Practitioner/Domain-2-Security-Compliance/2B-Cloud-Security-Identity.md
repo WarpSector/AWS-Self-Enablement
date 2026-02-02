@@ -121,8 +121,10 @@
     * Amazon Detective automatically collects data from AWS resources including VPC Flow Logs, CloudTrail, and GuardDuty.
     * Amazon Detective uses ML, statistical analysis, and graph theory to determine root cause.
     * Amazon Detective provides a unified, interactive view of resources, users, and the interactions between them.
-  * ### Amazon Macie
-    *  
+  * ### Amazon Macie (The "Robot" that enables security and preventative security)
+    * Amazon Macie is a fully managed service that uses ML and pattern matching to discover, monitor, and protect sensitive data in your S3 buckets.
+    * Amazon Macie can identify a variety of data types including personally identifiable information (PII), protected health information (PHI), API keys, and secret keys.
+ 
 
 
 
