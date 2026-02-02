@@ -1,6 +1,33 @@
 # Domain 1: Cloud Concepts
 # (1A: Cloud Benefits, Models, and Deployment)
 
+# High-Level
+### 🌐 The AWS Value Proposition
+
+| Benefit | Key Phrase | Logic |
+| :--- | :--- | :--- |
+| **Financial** | Trade Capital for Variable | Swap **CAPEX** (Upfront) for **OPEX** (Pay-as-you-go). |
+| **Efficiency** | Economies of Scale | Lower prices due to AWS's massive buying power. |
+| **Scaling** | Stop Guessing Capacity | Use **Elasticity** to match supply with demand. |
+| **Velocity** | Speed and Agility | Reduce time to market from weeks to minutes. |
+| **Focus** | Stop Running Data Centers | Focus on business logic, not "undifferentiated heavy lifting." |
+| **Reach** | Go Global in Minutes | Deploy globally with lower latency via AWS Regions. |
+
+### 🛠️ Service Model Comparison
+
+* **IaaS (Infrastructure):** Maximum control. You manage the OS (e.g., **EC2**).
+* **PaaS (Platform):** Maximum productivity. You only manage code (e.g., **Lambda**).
+* **SaaS (Software):** Maximum simplicity. You just use the app (e.g., **Marketplace**).
+
+---
+
+### 🏛️ Cloud Deployment Types
+1.  **Public Cloud:** 100% cloud-based.
+2.  **Hybrid:** A mix of On-premises and Cloud (Connected via Direct Connect/VPN).
+3.  **On-Premises (Private Cloud):** Deployed on-site using virtualization (like VMware).
+
+# Deep Dive
+
 ## What is "The Cloud"?
 
 Cloud computing is the on-demand delivery of IT resources over the internet with pay-as-you-go pricing. Instead of buying, owning, and maintaining physical data centers and servers, you can access technology services, such as computing power, storage, and databases, on an as-needed basis from a cloud provider like Amazon Web Services (AWS).
