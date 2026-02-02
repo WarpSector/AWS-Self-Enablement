@@ -2,36 +2,49 @@
 # (2B: Cloud Security and Identity)
 
 # High-Level
-### 🛡️ AWS Security & Governance Master Table
-
-| Service | Category | Core Mnemonic |
+### 🏛️ 1. Identity, Federation, and Directory Services
+| Service / Tool | Primary Purpose | Key Exam "Trigger" |
 | :--- | :--- | :--- |
-| **CloudTrail** | Auditing | **"Who did what?"** (API Log) |
-| **CloudWatch** | Monitoring | **"How is it performing?"** (Metrics) |
-| **Config** | Compliance | **"Is the config correct?"** (History) |
-| **Artifact** | Compliance | **"Show me the certificates"** (SOC/PCI) |
-| **RAM** | Resource | **"Share resources, not users"** (VPC Subnets) |
-| **Security Hub** | Dashboard | **"The Central Command Center"** (Aggregator) |
+| **Identity Federation** | Single Sign-On (SSO). | Use "existing credentials" to access AWS. |
+| **SAML 2.0** | Enterprise Federation. | Connecting **Active Directory (AD)** to AWS. |
+| **Web Identity** | Social Federation. | Login via **Google, Apple, or Meta**. |
+| **AWS Cognito** | App Identity. | **User Pools** (Auth) vs. **Identity Pools** (AuthZ). |
+| **Identity Center** | Centralized SSO. | Successor to AWS SSO; manages **multi-account** access. |
+| **AD Connector** | Networking Proxy. | Connects on-prem AD to AWS **without** syncing data. |
+| **AWS Managed Microsoft AD** | Cloud-native AD. | A real AD domain controller running **on AWS**. |
 
 ---
 
-### 🔑 Encryption & Secrets Cheat Sheet
-* **KMS:** Managed Service, Shared Hardware (FIPS 140-2 L2).
-* **CloudHSM:** Dedicated Hardware, Customer Managed (FIPS 140-2 L3).
-* **Secrets Manager:** Rotates keys automatically (e.g., RDS passwords).
-* **Parameter Store:** Stores plain text or encrypted strings (cheaper).
+### 🔐 2. Secrets and Encryption Management
+| Service | Encryption Type | Use Case | Key Distinction |
+| :--- | :--- | :--- | :--- |
+| **Parameter Store** | Symmetric (KMS) | Config data, passwords. | **Lower cost**; no built-in rotation. |
+| **Secrets Manager** | Symmetric (KMS) | Database credentials. | **Automatic Rotation** of secrets. |
+| **KMS** | Symmetric/Asymmetric | Key Management. | **Software-based** multi-tenant keys. |
+| **CloudHSM** | Symmetric/Asymmetric | Hardware Keys. | **Dedicated, Physical hardware**; Single-tenant. |
+| **ACM** | Asymmetric | SSL/TLS Certificates. | Encrypts data **In Transit** (HTTPS). |
 
-### 🚨 Threat Detection Timeline
-1. **Inspector:** Scans for unpatched software (EC2/Lambda/ECR).
-2. **GuardDuty:** Uses ML to find "weird" behavior (API/DNS/VPC Logs).
-3. **Detective:** Investigates a GuardDuty finding to find the "Why."
-4. **Macie:** Finds Social Security numbers (PII) in S3.
+---
 
-### 🛑 DDoS & Firewalls
-* **WAF:** Blocks specific bad requests (Layer 7).
-* **Shield Standard:** Free DDoS protection for everyone.
-* **Shield Advanced:** $3,000/mo, DDoS insurance, 24/7 Support.
-* **Firewall Manager:** Manages WAF/Shield rules across **Multi-Accounts**.
+### 🔎 3. The "Security Detection" Quadrant
+| Service | Stage | Focus Area | Analogy |
+| :--- | :--- | :--- | :--- |
+| **Inspector** | **BEFORE** | Vulnerabilities (EC2/Lambda). | The **Building Inspector** checking locks. |
+| **GuardDuty** | **DURING** | Active Threat Detection. | The **Security Guard** watching for intruders. |
+| **Detective** | **AFTER** | Root Cause Investigation. | The **Forensic Lab** analyzing the crime scene. |
+| **Macie** | **PREVENT** | S3 Data Privacy (PII). | The **Auditor** finding sensitive papers. |
+
+---
+
+### 🛡️ 4. Edge Security & Firewalls
+| Service | Layer (OSI) | Primary Protection | Key Feature |
+| :--- | :--- | :--- | :--- |
+| **AWS WAF** | **Layer 7** | SQL Injection, XSS. | Filters **specific web requests**. |
+| **AWS Shield** | **Layer 3/4** | DDoS Attacks. | **Advanced** tier ($3k/mo) provides SRT. |
+| **Network Firewall** | **Layer 3-7** | VPC-level traffic. | High-performance **Stateful** inspection. |
+| **Route 53 Firewall** | **DNS** | DNS Exfiltration. | Filters **Outbound DNS queries**. |
+
+---
 
 # Deep Dive
 
