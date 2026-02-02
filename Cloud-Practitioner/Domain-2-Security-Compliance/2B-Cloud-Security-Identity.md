@@ -57,7 +57,33 @@
     * Has central auditing for rotation and fine-grained permissions. 
 
 ## Encryption
-  * ### 
-
+  * ### Overview
+    * Data is encrypted **in transit** (as it moves over the network) and **at rest** (while its stored).
+    * **Encryption In Transit:** User is connecting to an application over the internet using the HTTPS protocol, which utilizes the **SSL/TLS** certificate to encrypt data **IN TRANSIT**.
+    * **Encryption At Rest:** User uploads unencrypted object into S3 and S3 automatically encrypts the object using a **DATA ENCRYPTION KEY** to encrypt the object as it's being written into the S3 bucket.
+  * ### Asymmetric Encryption
+    * Also known as "public key cryptography".
+    * Messages encrypted with a **public key** can only be decrypted by a **private key**.
+    * Messages encrypted with a **private key** can only be decrypted by a **public key**.
+    * This is why it's known as **asymmetric encryption**.
+    * Examples include SSL/TLS certificates and SSH.
+  * ### AWS Certificate Manager (ACM)
+    * ACM creates, stores, and renews SSL/TLS certificates.
+    * Supports single and multiple domains.
+    * Integrates with ELB, CloudFront, CloudFormation, Elastic Beanstalk, and Nitro Enclaves.
+    * For example: when you're generating a website with CloudFront, you can select a certificate from ACM. 
+  * ### Symmetric Encryption
+    * Encryption takes place by encrypting the plain text data with an encryption key.
+    * Decryption takes place by decrypting the plain text **with the same key**.
+    * This is why it's known as **symmetric encryption**.
+  * ### AWS Key Management Service (KMS)
+    * Creates and manages **BOTH** synmmetric and asymmetric *software* keys.
+    * **Customer Managed Keys (CMKs)** are protected by **Hardware Security Modules (HSMs)**.
+    * CMKs are created by developers and stored in KMS.
+    * CMKs are used for encryption.
+    * You can also use **AWS Managed Keys** that are provided by AWS to encrypt things like EBS volumes, SQS, FSx, etc. vs. using CMKs.
+  * ### AWS Hardware Security Modules (HSMs)
+    * Hardware Security Modules are physical, tamper-resistant computing device that generates, manages, and stores cryptographic keys.
+    * In the AWS world, you'll see this as AWS CloudHSM. While most users are happy with AWS KMS (which is a managed software service), some organizations require the "physical isolation" of an HSM to meet strict regulatory or security standards.  
 
 
