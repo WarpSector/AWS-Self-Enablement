@@ -43,7 +43,58 @@
     * #### Machine Learning (ML)
       * A type of AI used for training machines to perform complex tasks without explicit instructions.
       * ML "training" feeds data into the machine to **find patterns** hidden in the data, which produces a **MODEL**.
-      * The model can then be trained on other data sets to make predictions or decisions based on the patterns it leared. 
+      * The model can then be trained on other data sets to make predictions or decisions based on the patterns it learned.
+      * **Common Use Cases for ML Models:**
+        * Predict trends (e.g., stock prices)
+        * Make decisions (e.g., routing callers to departments)
+        * Detect anomalies (e.g., bank fraud)
+        * AI services (e.g., pre-built models already trained)
+       
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'edgeLabelBackground':'#ffffff', 'tertiaryColor': '#f0f0f0'}}}%%
+graph LR
+    %%---Defining Nodes & Shapes---%%
+    %% Subgraph creates the "container" effect for AI holding ML
+    subgraph AI_Container [AI Domain]
+        direction RL
+        ML_Node[ML Subset]
+    end
+
+    %% Double parentheses (( )) create Circles
+    Data_Node((Data))
+    Pred_Node((Predictions))
+
+    %% Curly braces { } create a Diamond
+    Model_Node{ML Model}
+
+
+    %%---Defining Connections---%%
+    %% Arrow from the whole AI/ML block to Data
+    AI_Container ====> Data_Node
+
+    %% Arrow from Data to Model
+    Data_Node ===> Model_Node
+
+    %% Three separate arrows from Model to Predictions
+    Model_Node ---> Pred_Node
+    Model_Node ---> Pred_Node
+    Model_Node ---> Pred_Node
+
+
+    %%---Styling for Visual Emphasis (Optional)---%%
+    classDef containerStyle fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px,color:#000;
+    classDef mlStyle fill:#c5cae9,stroke:#3f51b5,stroke-width:1px,color:#000;
+    classDef circleStyle fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#000,font-weight:bold,font-size:14px;
+    classDef diamondStyle fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000,font-size:14px;
+
+    class AI_Container containerStyle;
+    class ML_Node mlStyle;
+    class Data_Node,Pred_Node circleStyle;
+    class Model_Node diamondStyle;
+linkStyle 0,1,2,3,4 stroke:#fff,stroke-width:2px;
+```
+
+      
   * ### Amazon Rekognition
     *  
   * ### Amazon Transcribe
