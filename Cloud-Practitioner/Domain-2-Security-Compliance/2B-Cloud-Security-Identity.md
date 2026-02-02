@@ -155,3 +155,12 @@
       * Monitors and controls the domains applications an query.
       * Managed through AWS Firewall Manager or AWS Organizations (if mutliple accounts).
 
+## AWS Resource Access Manager (RAM)
+  * ### Overview
+    * RAM allows you to share specific AWS resources across different AWS accounts within your Organization.
+    * Instead of creating a duplicate subnet or a license in five different accounts, you create it once in a "Central" account and share it.
+    * This saves money and simplifies networking.
+    * Users who have resources shared WITH them cannot modify those resources.
+   
+
+
