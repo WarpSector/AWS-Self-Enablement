@@ -39,6 +39,6 @@
     * The AD Connector then connects to various AWS services.
     * Rather than having any director service running in the Cloud, we can just connect them to the Cloud through the AD Connector.
     * AD Connector eliminates the need for directory synchronization as well as the cost and complexity of hosting a federation structure.
-    * Connects you on-prem to AD to AWS.
+    * Connects your on-prem to AD to AWS.
 
 
