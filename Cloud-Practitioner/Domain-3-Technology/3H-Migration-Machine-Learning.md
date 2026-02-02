@@ -20,10 +20,18 @@
     * Online data transfer service.
     * Transfer data between on-premises and AWS storage services.
   * ### AWS Snowball Family
-    * **AWS Snowball and Snowmobile are used for migrating large volumes of data to AWS.**
+    * #### AWS Snowball and Snowmobile
+      * Used for migrating large volumes of data to AWS.
+      * Uses a secure storage device for PHYSICAL transportation.
+      * **SNOWBALL** has 80TB or 50TB transfer capability (petabyte scale achieved with multiple SNOWBALLS).
+      * **SNOWBALL EDGE** has 100TB transfer capability (petabyte scale achieved with one SNOWBALL EDGE).
+      * **SNOWMOBILE** is at *exabyte* scale with up to 100PB (petabytes) per SNOWMOBILE.
     * #### Snowball Edge Compute Optimized
       * Provides block an object storage along with an optional GPU.
-      * Good for edge computing use cases
+      * Good for edge computing use cases.
     * #### Snowball Edge Storage Optimized
       * Provides block storage and Amazon S3-compatible object storage.
-      *         
+      * Use for local storage and large-scale data transfer.
+    * #### Snowcone
+      * Small device used for edge computing, storage and data transfer.
+      * Can transfer data offline or online with AWS DataSync agents.       
