@@ -1,10 +1,57 @@
 # Domain 3: Technology
 # (3B: Amazon Elastic Compute Cloud (EC2) Service)
 
-## Amazon Elastic Compute Cloud (EC2)
+# High-Level
+### 🏛️ AWS Compute Service Type Comparison
 
-### Executive Summary
-Amazon EC2 provides resizable, virtualized compute capacity in the cloud, allowing users to launch instances with full control over the operating system and software stack. By utilizing Auto Scaling Groups and Elastic Load Balancing, EC2 creates a self-healing, "loosely coupled" architecture that can scale horizontally to meet demand while maintaining fault tolerance.
+| Service | Compute Type | Management Level | Scaling Style | Primary Use Case |
+| :--- | :--- | :--- | :--- | :--- |
+| **Amazon EC2** | Virtual Machines (IaaS) | **High** (You manage OS) | Manual or ASG | Legacy apps, full OS control. |
+| **AWS Lambda** | Serverless Functions | **Zero** (No servers) | Automatic (per event) | Event-driven code, 15-min tasks. |
+| **AWS Fargate** | Serverless Containers | **Zero** (No servers) | Automatic (per task) | Microservices without managing EC2. |
+| **Amazon ECS / EKS**| Container Orchestration| **Medium** (Orchestration)| Managed Clusters | Managing thousands of Docker boxes. |
+| **Elastic Beanstalk**| Platform as a Service (PaaS)| **Low** (Upload & Run) | Automated | Rapid web app deployment. |
+| **Amazon Lightsail** | Virtual Private Server (VPS)| **Very Low** (Simple UI) | Fixed / Predictable | Small websites, blogs, dev labs. |
+| **AWS Batch** | Batch Computing | **Low** (Job-based) | Dynamic | Thousands of scientific/data jobs. |
+---
+### 🛡️ EC2 Pricing Model Comparison
+
+| Pricing Model | The "Vibe" | Best Use Case | Cost Benefit |
+| :--- | :--- | :--- | :--- |
+| **On-Demand** | Flexible & Spiky | New apps, Dev/Test, Unpredictable traffic. | No commitment; pay-per-second. |
+| **Savings Plans** | Long-term Commitment | Consistent spend across EC2, Fargate, Lambda. | **Up to 72% off** (Flexible by family/region). |
+| **Reserved (RI)** | Predictable & Steady | 24/7 databases or stable legacy apps. | Up to 75% off (Region/AZ specific). |
+| **Spot** | High-Risk / Low-Cost | Batch jobs, stateless apps, "Interruptible" work. | **Up to 90% off** (Cheapest possible option). |
+| **Dedicated Host** | Full Control | Compliance, strict licensing (e.g., bring your own). | Most expensive; physical server isolation. |
+
+---
+
+### 🏗️ Resilience Deep Dive: High Availability (HA) vs. Fault Tolerance (FT)
+
+**Core Philosophy:** In the cloud, we don't try to prevent failure; we architect to survive it. High Availability is about **recovering fast**, while Fault Tolerance is about **never stopping.**
+
+| Feature | High Availability (HA) | Fault Tolerance (FT) |
+| :--- | :--- | :--- |
+| **User Experience** | A brief "hiccup" or refresh (seconds). | **Zero disruption** (invisible to the user). |
+| **Mechanism** | **Self-healing** (ASG) + **Failover** (ALB). | **Active-Active** redundancy (1:1 duplicates). |
+| **Design Goal** | Resilience via **Automated Recovery**. | Resilience via **Total Redundancy**. |
+| **Infrastructure** | Usually **Multi-AZ** (Single Region). | Often **Multi-Region** (Global). |
+| **Cost** | Efficient (Pay for what you need). | **Expensive** (Paying for 2x everything). |
+| **Analogy** | A car with a **spare tire** in the trunk. | A car with **dual engines** running at once. |
+
+---
+
+### 🛡️ The "Failure" Decision Matrix
+
+* **Self-Healing (ASG):** The system detects a failed instance and replaces it. (Maintains *Quantity*).
+* **Failover (ALB/Route 53):** The system detects an unhealthy path and reroutes traffic. (Maintains *Connectivity*).
+* **Fault Tolerance:** The system has no single point of failure; if one half dies, the other half is already processing the load. (Maintains *Continuity*).
+**Exam Tip:** If the question mentions **"Zero Downtime"** or **"Mission Critical,"** lean toward Fault Tolerance. If it mentions **"Minimize Downtime"** or **"Cost-effective,"** lean toward High Availability.
+---
+
+# Deep Dive
+
+## Amazon Elastic Compute Cloud (EC2)
 
 ### EC2 Overview and Basics
   * #### Compute is the engine of the Cloud.
@@ -206,54 +253,9 @@ Amazon EC2 provides resizable, virtualized compute capacity in the cloud, allowi
         * **NOTE:** Lambda code can only run events for a maximum of **15 minutes.**
   * #### Amazon Elastic Beanstalk:
        * Fastest and simplest way to get web applications up and running on AWS.
-       * Developers upload their application code --> AWS Elastic Beanstalk provisions all necessary resources to run the application and scale it as necessary (re: EC2, ASG, ECS/EKS, ELB).
+       * Developers upload their application code --> AWS Elastic Beanstalk provisions all necessary resources to run the application and scale it as necessary (re: EC2, ASG, ECS/EKS, ELB) <-- **AUTOMATION OF PROVISIONING RESOURCES FOR YOUR APPLICATION CODE!**
        * Elastic Beanstalk is **PaaS**, because you are operating at the platform level. Amazon is running the infrastructure and the platform for you, so you can focus on testing and deploying applications and code. 
 
-## Summary Tables
 
-### 🏛️ AWS Compute Service Type Comparison
 
-| Service | Compute Type | Management Level | Scaling Style | Primary Use Case |
-| :--- | :--- | :--- | :--- | :--- |
-| **Amazon EC2** | Virtual Machines (IaaS) | **High** (You manage OS) | Manual or ASG | Legacy apps, full OS control. |
-| **AWS Lambda** | Serverless Functions | **Zero** (No servers) | Automatic (per event) | Event-driven code, 15-min tasks. |
-| **AWS Fargate** | Serverless Containers | **Zero** (No servers) | Automatic (per task) | Microservices without managing EC2. |
-| **Amazon ECS / EKS**| Container Orchestration| **Medium** (Orchestration)| Managed Clusters | Managing thousands of Docker boxes. |
-| **Elastic Beanstalk**| Platform as a Service (PaaS)| **Low** (Upload & Run) | Automated | Rapid web app deployment. |
-| **Amazon Lightsail** | Virtual Private Server (VPS)| **Very Low** (Simple UI) | Fixed / Predictable | Small websites, blogs, dev labs. |
-| **AWS Batch** | Batch Computing | **Low** (Job-based) | Dynamic | Thousands of scientific/data jobs. |
----
-### 🛡️ EC2 Pricing Model Comparison
 
-| Pricing Model | The "Vibe" | Best Use Case | Cost Benefit |
-| :--- | :--- | :--- | :--- |
-| **On-Demand** | Flexible & Spiky | New apps, Dev/Test, Unpredictable traffic. | No commitment; pay-per-second. |
-| **Savings Plans** | Long-term Commitment | Consistent spend across EC2, Fargate, Lambda. | **Up to 72% off** (Flexible by family/region). |
-| **Reserved (RI)** | Predictable & Steady | 24/7 databases or stable legacy apps. | Up to 75% off (Region/AZ specific). |
-| **Spot** | High-Risk / Low-Cost | Batch jobs, stateless apps, "Interruptible" work. | **Up to 90% off** (Cheapest possible option). |
-| **Dedicated Host** | Full Control | Compliance, strict licensing (e.g., bring your own). | Most expensive; physical server isolation. |
-
----
-
-### 🏗️ Resilience Deep Dive: High Availability (HA) vs. Fault Tolerance (FT)
-
-**Core Philosophy:** In the cloud, we don't try to prevent failure; we architect to survive it. High Availability is about **recovering fast**, while Fault Tolerance is about **never stopping.**
-
-| Feature | High Availability (HA) | Fault Tolerance (FT) |
-| :--- | :--- | :--- |
-| **User Experience** | A brief "hiccup" or refresh (seconds). | **Zero disruption** (invisible to the user). |
-| **Mechanism** | **Self-healing** (ASG) + **Failover** (ALB). | **Active-Active** redundancy (1:1 duplicates). |
-| **Design Goal** | Resilience via **Automated Recovery**. | Resilience via **Total Redundancy**. |
-| **Infrastructure** | Usually **Multi-AZ** (Single Region). | Often **Multi-Region** (Global). |
-| **Cost** | Efficient (Pay for what you need). | **Expensive** (Paying for 2x everything). |
-| **Analogy** | A car with a **spare tire** in the trunk. | A car with **dual engines** running at once. |
-
----
-
-### 🛡️ The "Failure" Decision Matrix
-
-* **Self-Healing (ASG):** The system detects a failed instance and replaces it. (Maintains *Quantity*).
-* **Failover (ALB/Route 53):** The system detects an unhealthy path and reroutes traffic. (Maintains *Connectivity*).
-* **Fault Tolerance:** The system has no single point of failure; if one half dies, the other half is already processing the load. (Maintains *Continuity*).
-
-**Exam Tip:** If the question mentions **"Zero Downtime"** or **"Mission Critical,"** lean toward Fault Tolerance. If it mentions **"Minimize Downtime"** or **"Cost-effective,"** lean toward High Availability.
