@@ -165,6 +165,20 @@
       * CIS AWS Foundations Benchmar
       * PCI DSS  
 
+## AWS Security Bulletins
+  * ### Overview
+    * Security and privacy events affecting AWS services published to a dashboard (and provides a really simple syndication (RSS) feed).
+
+## AWS Trust & Safety Team
+  * ### Overview
+    * Contact this team if your AWS resources are being used for:
+      * Spam
+      * Port Scanning
+      * DDoS Attacks
+      * Intrusion Attempts
+      * Hosting of Objectional or Copyrighted Content
+      * Distributing Malware  
+
 ## AWS Resource Access Manager (RAM)
   * ### Overview
     * RAM allows you to share specific AWS resources across different AWS accounts within your Organization.
