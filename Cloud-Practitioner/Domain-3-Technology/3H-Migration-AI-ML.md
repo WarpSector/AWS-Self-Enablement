@@ -163,4 +163,14 @@ graph LR
     * Gives you total control over the model training process.
     * Use in-house expertise, existing frameworks, and AWS infrastructure. 
 
+## Deep Learning
+  * ### Overview
+    * Deep learning is a subset of ML.
+    * Uses neural networks (simulated human neural networks that are trained and layered on top of each other until a final model is produced). 
 
+## Generative Artifical Intelligence (GenAI)
+  * ### Overview
+    * GenAI is a type of **deep learning**.
+    * GenAI is powered by large ML models known as **FOUNDATION MODELS (FM)**.
+    * FMs can be adapted to perform multiple tasks since they are pre-trained on vast collections of data.
+    * Large Language Models (LLMs) are a popular type of FM. 
