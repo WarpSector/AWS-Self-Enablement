@@ -134,7 +134,7 @@ graph LR
     style AI color:#000, stroke:#333, stroke-width:2px
     style ML color:#000, stroke:#333, stroke-width:2px
 ```
-## Similarities ML vs. DL
+## Similarities: ML vs. DL
 ### Pattern Identification
 * Both train algorithms on large datasets to find correlations for predicting new data.
 ### AI Techniques
@@ -145,6 +145,37 @@ graph LR
 * Both need extensive training data for accuracy:
   * ML: 50-100 points/feature
   * DL: thousands of points
- 
+### Wide-Ranging Applications
+* Used in image classification, recommendation systems, natural language processing (NLP), and predictive analytics.
+### Computational Requirements
+* Require complex statistical methods and significant computational resources.
 
+## Differences: ML vs. DL
+### Intended Use Cases
+* **ML:** Suited for structured data (e.g., customer churn predicition).
+* **DL:** Ideal for unstructured data requiring high-level abstraction (e.g., image classification, sentiment analysis).
+### Problem-Solving Approach
+* **ML:** Requires manual feature engineering (humans select and extract key features from the raw data to improve the model's performance). 
+* **DL:** Uses neural networks for ***automatic feature extraction*** (humans DO NOT need to select and extract key features from the raw data to improve the model's performance).
+### Training Methods
+* **ML:** Uses supervised, unsupervised, semi-supernised, and reinforcement learning.
+* **DL:** Utilizes complex algorithms/methods like:
+  * **Convolutional Neural Networks (CNNs):**
+    * *The Analogy:* The Visual Designer.
+    * *What it does:* It scans data like a grid (images) to find patterns (edges, shapes, cats). It breaks an image down into small squares ("convolutions") to analyze features.
+    * *Input Data:* Images, Video.
+    * *Exam Use Case:* Computer Vision (e.g., An autonomous car seeing a stop sign, or Amazon Rekognition identifying a celebrity). 
+  * **Recurring Neural Networks (RNNs):**
+    * *The Analogy:* The Scriptwriter / Storyteller.
+    * *What it does:* It processes data in a specific order (sequences). Unlike a CNN, it has a "memory" of what came before so it can understand context.
+    * *Input Data:* Text, Audio, Time-Series data (Stock prices).
+    * *Exam Use Case:* Natural Language Processing (NLP) before 2017 (e.g., Predicting the next word in a sentence, or Amazon Translate in the early days).
+    * *Note:* RNNs are the ancestors of the Transformer models used in GPT/Bedrock.
+  * **Generative Adversarial Networks (GANs):**
+    * *The Analogy:* The Roleplay Simulation (Student vs. Teacher).
+    * *What it does:* It pits two neural networks against each other:
+    * *The Generator:* Tries to create a fake image (the Student).
+    * *The Discriminator:* Tries to spot the fake (the Strict Teacher). They fight back and forth until the Generator gets so good the Discriminator can't tell the difference.
+    * *Input Data:* Random noise → Realistic Data.
+    * *Exam Use Case:* Creating Synthetic Data (e.g., generating fake patient records for testing) or early image generation. 
 
