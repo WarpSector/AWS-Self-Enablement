@@ -8,7 +8,7 @@
 | **Artificial Intelligence (AI)** | The broadest field focused on machines mimicking human intelligence. | Uses logic, if-then statements, and algorithms for perception and reasoning. |
 | **Machine Learning (ML)** | A subset of AI that learns patterns from data to build models automatically. | Relies on statistical models and inference rather than explicit instructions. |
 | **Deep Learning (DL)** | A subset of ML using multi-layered neural networks to mimic the human brain. | Excels at analyzing complex, unstructured data like images and natural speech. |
-| **Generative AI (GenAI)** | A subset of DL powered by large, pre-trained foundation models. | Focuses on creating new content (text, audio, images) rather than just recognizing it. |
+| **Generative AI (GenAI)** | A subset of DL powered by large, pre-trained foundation models (FMs - DL models trained on a massive amount of data). | Focuses on creating new content (text, audio, images) rather than just recognizing it. |
 
 ---
 
@@ -83,6 +83,7 @@
 * **Deep Neural Networks** mimic the way the human brain processes information allowing the DL model to handle very complex tasks.
 * Excels at analyzing large volumes of complex, unstructured data such as images and text (it's what allows image recongition software to identify objects in photos and voice assistants to understand natural speech).
 * DL has the ability to uncover intricate patterns in unstructured data is what sets it apart from ML.
+* DL creates **Foundation Models (FMs)** - a specific, massive type of DL model trained on a vast amount of data.
 
 ## Generative Artificial Intelligence (Gen AI)
 ### Overview
