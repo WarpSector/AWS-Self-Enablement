@@ -1,6 +1,60 @@
 # Domain 1: Fundamentals of Machine Learning (ML) and Artificial Intelligence (AI)
 # (1A: Fundamentals and Taxonomy of AI)
 
+# High-Level Overview
+## Table 1: The AI Taxonomy (Relationship Hierarchy)
+| Technology | Definition & Scope | Key Characteristics |
+| :--- | :--- | :--- |
+| **Artificial Intelligence (AI)** | The broadest field focused on machines mimicking human intelligence. | Uses logic, if-then statements, and algorithms for perception and reasoning. |
+| **Machine Learning (ML)** | A subset of AI that learns patterns from data to build models automatically. | Relies on statistical models and inference rather than explicit instructions. |
+| **Deep Learning (DL)** | A subset of ML using multi-layered neural networks to mimic the human brain. | Excels at analyzing complex, unstructured data like images and natural speech. |
+| **Generative AI (GenAI)** | A subset of DL powered by large, pre-trained foundation models. | Focuses on creating new content (text, audio, images) rather than just recognizing it. |
+
+---
+
+## Table 2: AI vs. Machine Learning (ML) Comparison
+| Feature | Artificial Intelligence (AI) | Machine Learning (ML) |
+| :--- | :--- | :--- |
+| **Primary Objective** | Completing complex human tasks efficiently. | Identifying patterns in data to solve specific problems. |
+| **Methods & Tools** | Uses rule-based systems, search algorithms, and neural networks. | Uses statistical models (e.g., linear regression) and pattern inference. |
+| **Implementation** | Often involves prebuilt solutions accessed via APIs. | Involves dataset selection, model choice, and iterative refinement. |
+| **Infrastructure** | Can require thousands of machines for high-computing tasks. | Generally requires hundreds of data points and moderate compute power. |
+| **Similarities** | Both are branches of computer science focused on advanced data analysis and self-learning. | Both are used for complex, precise tasks like demand forecasting and self-driving systems. |
+
+---
+
+## Table 3: Machine Learning (ML) vs. Deep Learning (DL) Comparison
+| Feature | Machine Learning (ML) | Deep Learning (DL) |
+| :--- | :--- | :--- |
+| **Data Suitability** | Best for structured and labeled data (e.g., customer churn). | Ideal for unstructured data like images and sentiment analysis. |
+| **Problem Solving** | Uses statistics and mathematics for pattern recognition. | Combines statistics with deep neural network architectures. |
+| **Feature Extraction** | **Manual:** Humans must select and extract key features from raw data. | **Automatic:** Neural networks identify and extract features without human intervention. |
+| **Infrastructure** | Low to moderate; can run on a single server. | High; requires scalable cloud clusters and high-performance hardware. |
+| **Interpretation** | Easier to interpret due to simpler models (e.g., decision trees). | Harder to interpret; often described as a "black box" due to complexity. |
+
+---
+
+## Table 4: Specialized Deep Learning Architectures
+| Model (Type) | The Analogy | Best Input Data | Primary Use Case |
+| :--- | :--- | :--- | :--- |
+| **CNN** (Convolutional) | The Visual Designer | Images, Video | **Computer Vision:** Identifying objects in photos or stop signs for autonomous cars. |
+| **RNN** (Recurrent) | The Scriptwriter | Text, Audio, Stock Prices | **NLP:** Understanding context and processing data in a specific sequence or order. |
+| **GAN** (Generative Adversarial) | Student vs. Teacher | Random Noise | **Synthetic Data:** Creating realistic fake data or early-stage image generation. |
+
+---
+
+## Table 5: Generative AI (GenAI) Overview
+| Feature | Description |
+| :--- | :--- |
+| **Foundation Models** | Powered by large models pre-trained on vast datasets (Foundation Models/FMs). |
+| **Retraining** | Can adapt to new tasks using existing DL models without full retraining or fine-tuning. |
+| **Core Value** | Shifts from "traditional" AI (recognizing patterns) to "generative" (creating new content). |
+| **Enablers** | Driven by modern advances in computing power, algorithmic innovation, and data availability. |
+
+---
+
+# Deep Dive
+
 ## Artificial Intelligence (AI)
 ### Overview
 * AI is a broad field that encompasses the development of intelligent systems capable of performing tasks that typically require human intelligence, such as:
