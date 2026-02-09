@@ -11,4 +11,3 @@
 **Current Status:**
   * 02.07.26 - Passed AWS Cloud Practitioner Exam (Score: 914!)
   * 02.07.26 - Preparing for AWS AI Practitioner Exam (proposed exam date 02.22.26)
-
