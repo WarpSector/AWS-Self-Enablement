@@ -89,7 +89,7 @@ flowchart TD
 * **AI:** Infrastructure varies; high-computing tasks may need **thousands** of machines
 * **ML:** Needs **hundreds of data points** and moderate computational power (single server/small cluster)
 
-## Summary Table: AI vs. ML (Similarities and Differences)
+## Summary Table: AI vs. ML (Differences)
 ```mermaid
 graph LR
     %% Column 1: Labels
@@ -178,4 +178,64 @@ graph LR
     * *The Discriminator:* Tries to spot the fake (the Strict Teacher). They fight back and forth until the Generator gets so good the Discriminator can't tell the difference.
     * *Input Data:* Random noise → Realistic Data.
     * *Exam Use Case:* Creating Synthetic Data (e.g., generating fake patient records for testing) or early image generation. 
+### Performance
+* **ML:** Suitable for simpler tasks; easier to interpret due to simpler models (e.g., decision trees).
+* **DL:** Excels in complex tasks (e.g., medical imaging); harder to interpret due to complexity (sometimes treated as a *black box*).
+### Human Involvement
+* **ML:** Requires manual feature selection and data labeling.
+* **DL:** Less human intervention; uses **automatic feature extraction** and pretrained models.
+### Infrastructure Requirements
+* **ML:** Runs on single-server or small cluster; less resource-intensive.
+* **DL:** Needs high-performance clusters and scalable cloud infrastructure, resulting in higher costs.
+
+## Summary Table: ML vs. DL (Differences)
+```mermaid
+flowchart LR
+    %% Column 1: Labels
+    subgraph Labels [" "]
+        direction TB
+        L1["<b>What is it?</b>"]
+        L2["<b>Best suited for</b>"]
+        L3["<b>Problem solving</b>"]
+        L4["<b>Training</b>"]
+        L5["<b>Resources required</b>"]
+    end
+
+    %% Column 2: Machine Learning
+    subgraph ML ["<b>Machine Learning</b>"]
+        direction TB
+        M1["ML is an artificial intelligence methodology. Not all ML is deep learning."]
+        M2["ML is best for well-defined tasks with structured and labeled data."]
+        M3["ML solves problems through statistics and mathematics."]
+        M4["You have to manually select and extract features from raw data."]
+        M5["ML is less complex and has a lower data volume."]
+    end
+
+    %% Column 3: Deep Learning
+    subgraph DL ["<b>Deep Learning</b>"]
+        direction TB
+        D1["Deep learning is an advanced ML methodology. All deep learning is ML."]
+        D2["Deep learning is best for complex tasks with unstructured data."]
+        D3["Deep learning combines statistics with neural network architecture."]
+        D4["Deep learning models can self-learn using feedback from errors."]
+        D5["Deep learning is more complex with a very high data volume."]
+    end
+
+    %% Aligning the rows
+    L1 --- M1 --- D1
+    L2 --- M2 --- D2
+    L3 --- M3 --- D3
+    L4 --- M4 --- D4
+    L5 --- M5 --- D5
+
+    %% Styling for black text in titles
+    style Labels fill:none,stroke:none
+    style ML fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style DL fill:#fff,stroke:#333,stroke-width:2px,color:#000
+```
+
+
+
+
+
 
