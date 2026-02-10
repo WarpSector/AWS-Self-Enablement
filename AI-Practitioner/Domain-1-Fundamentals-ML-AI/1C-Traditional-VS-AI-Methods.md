@@ -1,5 +1,5 @@
 # Domain 1: Fundamentals of Machine Learning (ML) and Artificial Intelligence (AI)
-# (1B: Traditional Methods vs. Artificial Intelligence Methods for Problem-Solving)
+# (1C: Traditional Methods vs. Artificial Intelligence Methods for Problem-Solving)
 
 # High-Level Overview
 ## Table 1: Traditional vs. AI/ML Comparison
