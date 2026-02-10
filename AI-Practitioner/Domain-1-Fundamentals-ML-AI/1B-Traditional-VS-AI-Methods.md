@@ -1,6 +1,20 @@
 # Domain 1: Fundamentals of Machine Learning (ML) and Artificial Intelligence (AI)
 # (1B: Traditional Methods vs. Artificial Intelligence Methods for Problem-Solving)
 
+## Decision Flowchart for Using AI/ML or Using Standard Rules & Coding
+```mermaid
+graph TD
+    A[Start: Define Problem & Goals] --> B{Can you code the rules?}
+    B -- Yes: Rules are fixed/deterministic --> C[Traditional Code/Rules]
+    B -- No: Rules too complex/overlap --> D{Can you scale manually?}
+    D -- No: Need to handle large-scale data --> E[AI/ML Solution]
+    D -- Yes: Human scale is sufficient --> C
+    E --> F[Axiom: Start Simple]
+    F --> G[Perform Cost-Benefit Analysis]
+    G --> H[Check: Is ML outperforming existing methods?]
+```
+---
+
 ## The Axioms
 ### Do you need ML to solve this problem or can you solve it using traditional code?
 #### Not Always Necessary
