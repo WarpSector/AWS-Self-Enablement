@@ -2,6 +2,38 @@
 # (1B: Basic AI Concepts and Terminology)
 
 # High-Level Overview
+## Table 1: Model vs. Algorithm Comparison
+| Concept | Definition | Analogy | Examples |
+| :--- | :--- | :--- | :--- |
+| **Algorithm** | A set of instructions that creates the model by learning patterns. | The "Cooking Method" or "How-to". | Linear Regression, Decision Trees, Clustering. |
+| **Model** | A formula/recipe used to make decisions or predictions. | The finished "Recipe" or "Formula". | Spam Detection Systems, Sales Prediction Models. |
+
+---
+
+## Table 2: Training vs. Inference (The Lifecycle)
+| Stage | Definition | Analogy | AWS Implementation |
+| :--- | :--- | :--- | :--- |
+| **Training** | Feeding historical data into an algorithm to create a model. | A student studying for an exam using textbooks. | SageMaker, S3 (Data), ECR (Algorithm), EC2 (P4/P5). |
+| **Inference** | Applying a trained model to new, unseen data in the real world. | A student taking the actual exam. | SageMaker Endpoints, Amazon Bedrock, CloudWatch (Logs). |
+
+---
+
+## Table 3: Model Fit: Accuracy vs. Flexibility
+| State | Problem | Outcome | Analogy |
+| :--- | :--- | :--- | :--- |
+| **Good Fit** | Accurately learns patterns with minimal error. | Balances accuracy and generalization. | A perfectly tailored suit. |
+| **Overfitting** | Learns too many details and "noise". | Performs poorly on new data. | A suit too tight to move in. |
+| **Underfitting** | Doesn't learn enough to see important patterns. | Fails to capture the basic data structure. | A suit that is way too large. |
+
+---
+
+## Table 4: Responsible AI: Bias & Fairness
+| Concept | Definition | Analogy | Key Goal |
+| :--- | :--- | :--- | :--- |
+| **Bias** | Skewed predictions due to preferences or prejudices in training data. | A recruiter prioritizing candidates only by school. | Minimize skewed or unfair predictions. |
+| **Fairness** | Ensuring predictions do not discriminate or give undue advantage. | Setting equal rules in a game for all players. | Models must work equally for everyone (race, gender, etc.). |
+
+---
 
 # Deep Dive
 
@@ -105,3 +137,62 @@ graph LR
   * **Examples:**
     * A sales prediction model that perfectly matches past sales (overfit) might fail to predict future sales accurately because it learned too much from the specific past data.
     * A well-fitted model balances past accuracy and generalization for future data.  
+
+```mermaid
+graph TD
+    Data[Training Data Patterns<br/>The 'Body' to be fitted]
+
+    subgraph Underfitting [Too Simple]
+        direction TB
+        U1[Learns too little] --> U2[Misses important patterns]
+        U2 --> U3(<br/>Analogy:<br/>Suit is way too baggy<br/>)
+    end
+
+    subgraph Good_Fit [Just Right]
+        direction TB
+        G1[Learns key patterns] --> G2[Balances accuracy & flexibility]
+        G2 --> G3(<br/>Analogy:<br/>Perfectly tailored suit<br/>)
+    end
+
+    subgraph Overfitting [Too Complex]
+        direction TB
+        O1[Learns every detail & noise] --> O2[Memorizes data, fails on new inputs]
+        O2 --> O3(<br/>Analogy:<br/>Suit so tight you can't move<br/>)
+    end
+
+    Data --> U1
+    Data --> G1
+    Data --> O1
+
+    %% Styles for visual clarity
+    style Underfitting fill:#fff2f2,stroke:#d9534f,stroke-width:2px,color:#d9534f
+    style U3 fill:#d9534f,stroke:none,color:#fff
+    
+    style Good_Fit fill:#f2fff2,stroke:#5cb85c,stroke-width:2px,color:#5cb85c
+    style G3 fill:#5cb85c,stroke:none,color:#fff
+    
+    style Overfitting fill:#fff2f2,stroke:#d9534f,stroke-width:2px,color:#d9534f
+    style O3 fill:#d9534f,stroke:none,color:#fff
+
+    style Data fill:#eee,stroke:#333,stroke-width:2px, color:#000
+```
+
+## Bias
+### Explanation
+  * **What is** ***Bias***?
+    * When a model makes **skewed predictions** due to **preferences or prejudices in the training data**. 
+  * **Analogy:**
+    * Like a recruiter prioritizing candidates based only on their school, ignoring other qualifications.
+  * **Examples:**
+    * An algorithm favoring applicants from specific background, leading to unfair exclusion of diverse talent.
+
+## Fairness
+### Explanation
+  * **What is ***Fairness***?
+    * *Fairness* in machine learning means that the model's predicitions **do not discriminate** or give undue advantage to any group.
+    * Fairness ensures that the model works equally well for everyone, regardless of race, gender, age, etc. 
+  * **Analogy:**
+    * Like setting equal rules in a game for all players.
+  * **Example:**
+    * A hiring model must avoid gender bias to ensure fair candidate selection.   
+ 
