@@ -223,4 +223,40 @@ graph TD
  * You have flexibile deployment options since you are using SageMaker for real-time inference and/or batch processing.
  * Integrates with AWS services for monitoring, logging, and security (CloudWatch).
 
+## Machine Learning Operations (MLOps)
+### Overview
+ * **Machine Learning Operations (MLOps)** is a set of practices designed to **streamline** and **automate** the *deployment*, *monitoring*, and *management* of ML models in production (live) environments.
+ * **GOAL:** Accelerate the *deployment* of model, *maintain* model performance, and ensure *scalability* and *governance* throughout the ML lifecycle.
+### Core Concepts
+#### Experimentation
+ * *Experimentation* is all about testing various models, algorithms (used to train models), and datasets (used to build algorithms) to find the best solution.
+ * **MLOps Practices:**
+   * Using tools like *Amazon SageMaker Experiments*, you can track experimentation by organizing your experiments and allowing collaboration during the experimentation phase.
+   * *Fast iterations* where you build, train, and test models quickly and document the configurations and versions tested allow you to conduct more experiments and faster.
+ * The benefits from experimentation is that they allow you to make informed decisions on which model to use, improves the selection of models you are building, and reduces redundancy through strong documentation of configuration and version control.
+#### Repeatable Processes
+ * Creating *repeatable processes* ensures **consistent training, evaluation** and **deployment** of ML models using the same methods every time and is key to:
+   * Producing reliable results
+   * Maintaining the model performance over time
+ * **Amazon SageMaker Pipelines** is a service that automates an standardizes workflows for repeatability. 
+#### Scalable Systems
+ * **Scalability matters** because models must handle increasing data and user demands without losing performance! (always design for scale).
+ * Leverage Amazon SageMaker and AWS Auto-Scaling to scale for large datasets and traffic and to adjust resources dynamically for varying workloads.
+ * The benefits from using scalable systems is that they ensure your apps reliably perform while using resources in a cost-effective manner.
+#### Managing Technical Debt
+ * *Technical Debt* is the accumulation of shortcuts and unmanaged models that hinder future work.
+ * **MLOps Practices:**
+   * Using *SageMaker Model Registry* for managing model versions and even allowing you to promote specific models for deployment ensures an orderly management system for your ML models.
+   * Documenting your *pipelines* well and automating them minimizes manual interventions and streamlines deployment and creates repeatable processes.
+ * The benefits of managing technical debt is that it reduces maintenance time and heightens your ability to govern your models.
+#### Model Monitoring
+ * *Model Monitoring* is critical because models will drift or decay in performance over time.
+ * By monitoring your model(s), you will detect changes in performance due to data drift, model decay, and/or shifts in user behavior.
+ * Leveraging *Amazon SageMaker Model Monitor* allows you to monitor your models in real-time and provides alerts when anomalies are detected.
+ * The benefits of using monitoring is that it maintains *accuracy* of your models and enhances trust and reliability in the predictions/decisions your models make.
+#### Model Re-Training
+ * Models need to be re-trained when they experience degradation due to changes in input data or problem domains, such as shifts in user behavior and changes to input data.
+ * Leveraging *Amazon SageMaker Pipelines* can automate re-training your model with fresh data.
+ * Building and using a Model Registry will ensure only the best and most current models are deployed into producton.
+
 
